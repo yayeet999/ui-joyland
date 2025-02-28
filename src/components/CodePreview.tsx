@@ -1,31 +1,33 @@
 
 import { useState, useEffect } from "react";
-import { parse } from "react-html-parser";
 
 interface CodePreviewProps {
   code: string;
 }
 
 const CodePreview: React.FC<CodePreviewProps> = ({ code }) => {
-  const [rendered, setRendered] = useState<any>(null);
+  const [rendered, setRendered] = useState<JSX.Element | null>(null);
 
   useEffect(() => {
     try {
-      // Simple extraction of HTML from code
-      const htmlContent = extractHtmlFromCode(code);
-      setRendered(parse(htmlContent));
+      // This is a placeholder for actual code rendering
+      // In a real implementation, you might use a sandbox solution
+      // or a more sophisticated approach to render components from code
+      setRendered(
+        <div className="p-4 border rounded">
+          <p className="text-sm text-gray-500">Preview of component:</p>
+          <pre className="mt-2 p-2 bg-gray-100 rounded overflow-auto text-xs">
+            {code.substring(0, 100)}...
+          </pre>
+        </div>
+      );
     } catch (error) {
       console.error("Error rendering component:", error);
-      setRendered(<div className="text-red-500">Error rendering component</div>);
+      setRendered(
+        <div className="text-red-500">Error rendering component</div>
+      );
     }
   }, [code]);
-
-  function extractHtmlFromCode(code: string): string {
-    // This is a simple extraction - in a real app you'd need more sophisticated parsing
-    // Or preferably use a sandbox to actually render the React component
-    const match = code.match(/<([^]*?)>/);
-    return match ? match[0] : "";
-  }
 
   return (
     <div className="component-preview">
