@@ -1,111 +1,148 @@
-
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Moon, Sun, Menu, ChevronDown } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { isCategoryPage } from "@/lib/utils";
+import CategorySidebarContent from "./CategorySidebarContent";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Search, Sun, Moon } from "lucide-react";
 import { UserMenu } from "@/components/UserMenu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
-interface HeaderProps {
-  searchQuery: string;
-  setSearchQuery: (query: string) => void;
-  darkMode: boolean;
-  setDarkMode: (darkMode: boolean) => void;
-}
+// Categories data - reused from CategorySidebarContent to ensure consistency
+const categories = [
+  { id: "sliders", name: "Sliders", href: "/components/sliders" },
+  { id: "galleries", name: "Galleries", href: "/components/galleries" },
+  { id: "accordions", name: "Accordions", href: "/components/accordions" },
+  { id: "charts", name: "Charts", href: "/components/charts" },
+  { id: "forms", name: "Forms", href: "/components/forms" },
+  { id: "pricing", name: "Pricing Tables", href: "/components/pricing" },
+  { id: "buttons", name: "Buttons", href: "/components/buttons" },
+  { id: "modals", name: "Modals", href: "/components/modals" },
+  { id: "navigation", name: "Navigation Bars", href: "/components/navigation" },
+  { id: "footers", name: "Footers", href: "/components/footers" },
+];
 
-const Header = ({ searchQuery, setSearchQuery, darkMode, setDarkMode }: HeaderProps) => {
-  const [scrolled, setScrolled] = useState(false);
-  const navigate = useNavigate();
+export const Header = () => {
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("theme") === "dark" || 
+    (!localStorage.getItem("theme") && 
+     window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
+  const isCategory = isCategoryPage(location.pathname);
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Implement search functionality
-    console.log("Searching for:", searchQuery);
+  const closeSidebar = () => setIsSidebarOpen(false);
+
+  // Close sidebar when location changes
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [location]);
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("theme", newDarkMode ? "dark" : "light");
+    
+    if (newDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   };
 
-  // Add scroll effect
+  // Initialize dark mode on first render
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Link to="/" className="text-2xl font-bold text-gray-800 dark:text-white">
-              <span className="text-accent-purple">UI</span>Joyland
-            </Link>
-          </motion.div>
+    <header className="border-b sticky top-0 z-50 bg-background">
+      <div className="container h-16 flex items-center justify-between">
+        <div className="flex items-center gap-6">
+          <Link to="/" className="font-bold text-xl flex items-center gap-1">
+            <span className="text-accent-purple">UI</span>Joyland
+          </Link>
+          
+          {/* UI Components Dropdown - Only visible on large screens */}
+          <div className="hidden lg:flex items-center gap-4">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="px-3 py-2 text-base font-medium flex items-center gap-1">
+                  UI Components
+                  <ChevronDown className="h-5 w-5 ml-1 opacity-70" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-56">
+                {categories.map((category) => (
+                  <DropdownMenuItem key={category.id} asChild className="text-base">
+                    <Link to={category.href} className="w-full">
+                      {category.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+            {/* Templates (Coming Soon) - Greyed out and unclickable */}
+            <div className="text-base font-medium text-gray-400 cursor-not-allowed select-none">
+              Templates (coming soon)
+            </div>
+          </div>
+        </div>
 
-          {/* Search Bar */}
-          <motion.div
-            className="hidden md:flex flex-1 mx-4 max-w-md"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+        <div className="flex items-center gap-2">
+          {/* Theme toggle */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleDarkMode}
+            aria-label="Toggle theme"
+            className="ml-1"
           >
-            <form onSubmit={handleSearch} className="w-full">
-              <div className="relative">
-                <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
-                <Input
-                  type="search"
-                  placeholder="Search components..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 bg-gray-100 dark:bg-gray-800 border-0"
-                />
-              </div>
-            </form>
-          </motion.div>
+            {darkMode ? (
+              <Sun className="h-6 w-6" />
+            ) : (
+              <Moon className="h-6 w-6" />
+            )}
+            <span className="sr-only">Toggle theme</span>
+          </Button>
 
-          {/* Right side actions */}
-          <motion.div
-            className="flex items-center space-x-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            {/* Theme toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setDarkMode(!darkMode)}
-              aria-label="Toggle theme"
-            >
-              {darkMode ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-
-            {/* User menu (sign in or user avatar) */}
-            <UserMenu />
-          </motion.div>
+          {/* User Menu / Auth Button */}
+          <UserMenu />
+          
+          {/* Category Menu (only for category pages) - Moved AFTER UserMenu for mobile */}
+          {isCategory && (
+            <div className="lg:hidden">
+              <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="ml-1">
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Toggle category menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-[280px] sm:w-[350px] p-0">
+                  <CategorySidebarContent onItemClick={closeSidebar} />
+                </SheetContent>
+              </Sheet>
+            </div>
+          )}
         </div>
       </div>
     </header>
   );
 };
 
+// Also export as default for backward compatibility with existing imports
 export default Header;

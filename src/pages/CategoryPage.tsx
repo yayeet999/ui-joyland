@@ -1,10 +1,11 @@
-
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Copy } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { toast } from "sonner";
+import Layout from "@/components/Layout";
+import CategorySidebar from "@/components/CategorySidebar";
 
 // Mock component data (to be replaced with actual data in the future)
 const mockComponents = {
@@ -88,12 +89,7 @@ const getCategoryName = (category: string): string => {
   return categoryMap[category] || category.charAt(0).toUpperCase() + category.slice(1);
 };
 
-const ComponentCard: React.FC<{ component: any; delay: number }> = ({ component, delay }) => {
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText(component.code);
-    toast.success("Code copied to clipboard!");
-  };
-
+const ComponentCard: React.FC<{ component: any; delay: number; category: string }> = ({ component, delay, category }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -108,10 +104,12 @@ const ComponentCard: React.FC<{ component: any; delay: number }> = ({ component,
             size="sm"
             variant="secondary"
             className="flex items-center gap-1 bg-white/90 dark:bg-gray-700/90 backdrop-blur-sm"
-            onClick={handleCopyCode}
+            asChild
           >
-            <Copy className="w-4 h-4" />
-            <span className="text-xs">Copy</span>
+            <Link to={`/components/${category}/${component.id}`}>
+              <span className="text-xs">Code</span>
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
           </Button>
         </div>
         <div className="p-6 bg-gray-50 dark:bg-gray-900 min-h-[200px] flex items-center justify-center">
@@ -152,38 +150,58 @@ const CategoryPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <Link to="/" className="inline-flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:text-accent-purple dark:hover:text-accent-purple transition-colors">
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to Home</span>
-        </Link>
-        <h1 className="text-3xl font-bold mt-4">{categoryName}</h1>
-        <p className="text-gray-600 dark:text-gray-400 mt-2">
-          Browse and copy our collection of {categoryName.toLowerCase()} components
-        </p>
-      </div>
-
-      {components.length > 0 ? (
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={container}
-          initial="hidden"
-          animate="show"
-        >
-          {components.map((component, index) => (
-            <ComponentCard key={component.id} component={component} delay={index} />
-          ))}
-        </motion.div>
-      ) : (
-        <div className="text-center py-16">
-          <h3 className="text-xl font-medium mb-2">No components found</h3>
-          <p className="text-gray-500 dark:text-gray-400">
-            This category doesn't have any components yet
-          </p>
+    <Layout>
+      <div className="flex">
+        {/* Category Sidebar (desktop) + Mobile Menu */}
+        <CategorySidebar />
+        
+        {/* Main Content */}
+        <div className="flex-1 overflow-hidden">
+          <div className="container mx-auto px-4 py-8">
+            <div className="flex items-center mb-8">
+              {/* Mobile category menu button rendered within CategorySidebar */}
+              <div className="lg:hidden">
+                {/* Space reserved for the mobile menu button */}
+              </div>
+              
+              <div className="flex-1">
+                <h1 className="text-3xl font-bold">
+                  {categoryName}
+                </h1>
+                <p className="text-gray-600 dark:text-gray-400 mt-2">
+                  Browse and copy our collection of {categoryName.toLowerCase()} components
+                </p>
+              </div>
+            </div>
+            
+            {components.length > 0 ? (
+              <motion.div 
+                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+                variants={container}
+                initial="hidden"
+                animate="show"
+              >
+                {components.map((component, index) => (
+                  <ComponentCard 
+                    key={component.id} 
+                    component={component} 
+                    delay={index} 
+                    category={categoryKey}
+                  />
+                ))}
+              </motion.div>
+            ) : (
+              <div className="text-center py-16">
+                <h3 className="text-xl font-medium mb-2">No components found</h3>
+                <p className="text-gray-500 dark:text-gray-400">
+                  This category doesn't have any components yet
+                </p>
+              </div>
+            )}
+          </div>
         </div>
-      )}
-    </div>
+      </div>
+    </Layout>
   );
 };
 

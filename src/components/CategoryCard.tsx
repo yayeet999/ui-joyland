@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -23,13 +22,13 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ icon: Icon, name, href, del
     >
       <Link 
         to={href}
-        className="w-full flex flex-col items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md 
-                hover:shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer"
+        className="w-full flex flex-col items-center p-8 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 
+                hover:shadow-md hover:border-accent-purple/30 dark:hover:border-accent-purple/30 transition-all duration-300 cursor-pointer group"
       >
-        <div className="mb-4 p-3 rounded-full bg-gray-100 dark:bg-gray-700">
-          <Icon className="w-8 h-8 text-accent-purple" />
+        <div className="mb-4 p-4 rounded-full bg-gradient-to-br from-purple-50 to-blue-50 dark:from-gray-800 dark:to-gray-700 group-hover:from-accent-purple/10 group-hover:to-accent-blue/10 transition-colors duration-300">
+          <Icon className="w-8 h-8 text-accent-purple group-hover:text-accent-blue transition-colors duration-300" />
         </div>
-        <h3 className="text-lg font-medium text-center">{name}</h3>
+        <h3 className="text-lg font-medium text-center group-hover:text-accent-purple transition-colors duration-300">{name}</h3>
       </Link>
     </motion.div>
   );
