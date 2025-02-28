@@ -132,14 +132,10 @@ const Auth = () => {
     
     try {
       console.log(`Initiating ${provider} OAuth sign in`);
-      // Get the current URL to determine if we're in preview or local environment
-      const currentUrl = window.location.origin;
-      console.log("Current origin:", currentUrl);
-      
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${currentUrl}/auth`,
+          redirectTo: `${window.location.origin}/auth`,
         },
       });
 
