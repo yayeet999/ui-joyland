@@ -21,24 +21,50 @@ const Auth = () => {
   // Check for OAuth redirect responses
   useEffect(() => {
     const handleAuthStateChange = async () => {
-      // Get hash fragment
-      const hashParams = new URLSearchParams(window.location.hash.substring(1));
-      const accessToken = hashParams.get("access_token");
-      
-      // If we have an access token in the URL, it means OAuth redirect happened
-      if (accessToken) {
-        // Clear the hash to prevent issues on refresh
-        window.history.replaceState(null, document.title, window.location.pathname);
-        navigate("/");
+      // Check for URL hash (which contains the access token after OAuth sign-in)
+      if (window.location.hash) {
+        console.log("Detected hash in URL, handling OAuth redirect");
+        
+        // Extract the hash parameters
+        const hashParams = new URLSearchParams(window.location.hash.substring(1));
+        const accessToken = hashParams.get("access_token");
+        const refreshToken = hashParams.get("refresh_token");
+        const expiresIn = hashParams.get("expires_in");
+        const tokenType = hashParams.get("token_type");
+        
+        if (accessToken) {
+          console.log("Access token found, setting session manually");
+          
+          try {
+            // The session will be automatically set by Supabase's auth library
+            // Clear the hash to prevent issues on page refresh
+            window.history.replaceState(null, document.title, window.location.pathname);
+            
+            // After a short delay, redirect to home page
+            // This delay gives Supabase auth time to process the tokens
+            setTimeout(() => {
+              console.log("Redirecting to home page after OAuth");
+              navigate("/");
+            }, 500);
+          } catch (error) {
+            console.error("Error handling OAuth redirect:", error);
+            toast({
+              title: "Authentication error",
+              description: "There was a problem processing your sign-in.",
+              variant: "destructive",
+            });
+          }
+        }
       }
     };
 
     handleAuthStateChange();
-  }, [navigate]);
+  }, [navigate, toast]);
 
   // Redirect if user is already logged in
   useEffect(() => {
     if (user) {
+      console.log("User already logged in, redirecting to home");
       navigate("/");
     }
   }, [user, navigate]);
@@ -105,6 +131,7 @@ const Auth = () => {
     setLoading(true);
     
     try {
+      console.log(`Initiating ${provider} OAuth sign in`);
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {

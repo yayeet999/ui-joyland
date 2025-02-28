@@ -28,9 +28,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Get initial session
     const getInitialSession = async () => {
       try {
+        console.log("Getting initial session");
         const { data: { session } } = await supabase.auth.getSession();
         
         if (session) {
+          console.log("Initial session found", session.user.email);
           setSession(session);
           setUser(session.user);
           
@@ -41,10 +43,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
               description: "Welcome back!",
             });
           }
+        } else {
+          console.log("No initial session found");
+          setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching initial session:", error);
-      } finally {
         setLoading(false);
       }
     };
@@ -77,7 +81,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => {
       subscription.unsubscribe();
     };
-  }, [toast]);
+  }, [toast, loading]);
 
   const signOut = async () => {
     try {
