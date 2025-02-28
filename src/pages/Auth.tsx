@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -18,11 +18,30 @@ const Auth = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
 
+  // Check for OAuth redirect responses
+  useEffect(() => {
+    const handleAuthStateChange = async () => {
+      // Get hash fragment
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+      const accessToken = hashParams.get("access_token");
+      
+      // If we have an access token in the URL, it means OAuth redirect happened
+      if (accessToken) {
+        // Clear the hash to prevent issues on refresh
+        window.history.replaceState(null, document.title, window.location.pathname);
+        navigate("/");
+      }
+    };
+
+    handleAuthStateChange();
+  }, [navigate]);
+
   // Redirect if user is already logged in
-  if (user) {
-    navigate("/");
-    return null;
-  }
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const handleEmailSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,7 +108,7 @@ const Auth = () => {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: window.location.origin,
+          redirectTo: `${window.location.origin}/auth`,
         },
       });
 
@@ -103,6 +122,18 @@ const Auth = () => {
       setLoading(false);
     }
   };
+
+  // If we're in a loading state or processing auth, show a loading indicator
+  if (loading && user === null) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
+        <div className="text-center">
+          <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
+          <p className="text-sm text-muted-foreground">Processing authentication...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">

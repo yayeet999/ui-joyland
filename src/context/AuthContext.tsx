@@ -29,8 +29,19 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const getInitialSession = async () => {
       try {
         const { data: { session } } = await supabase.auth.getSession();
-        setSession(session);
-        setUser(session?.user ?? null);
+        
+        if (session) {
+          setSession(session);
+          setUser(session.user);
+          
+          // Show welcome toast only if this is not the initial load
+          if (!loading) {
+            toast({
+              title: "Signed in successfully",
+              description: "Welcome back!",
+            });
+          }
+        }
       } catch (error) {
         console.error("Error fetching initial session:", error);
       } finally {
@@ -42,6 +53,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log("Auth state changed:", event, session?.user?.email);
+      
       setSession(session);
       setUser(session?.user ?? null);
       setLoading(false);
