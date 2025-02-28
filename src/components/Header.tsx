@@ -13,6 +13,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Dispatch, SetStateAction } from "react";
 
 // Categories data - reused from CategorySidebarContent to ensure consistency
 const categories = [
@@ -28,12 +29,14 @@ const categories = [
   { id: "footers", name: "Footers", href: "/components/footers" },
 ];
 
-export const Header = () => {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("theme") === "dark" || 
-    (!localStorage.getItem("theme") && 
-     window.matchMedia("(prefers-color-scheme: dark)").matches)
-  );
+interface HeaderProps {
+  darkMode: boolean;
+  setDarkMode: Dispatch<SetStateAction<boolean>>;
+  searchQuery: string;
+  setSearchQuery: Dispatch<SetStateAction<string>>;
+}
+
+export const Header = ({ darkMode, setDarkMode, searchQuery, setSearchQuery }: HeaderProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
   const isCategory = isCategoryPage(location.pathname);
@@ -57,15 +60,6 @@ export const Header = () => {
       document.documentElement.classList.remove("dark");
     }
   };
-
-  // Initialize dark mode on first render
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, []);
 
   return (
     <header className="border-b sticky top-0 z-50 bg-background">

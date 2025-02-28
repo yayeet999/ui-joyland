@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import Header from "@/components/Header";
+
+import { useState } from "react";
 import CategoryGrid from "@/components/CategoryGrid";
 import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
@@ -7,17 +7,7 @@ import { Sparkles, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 
 const Index = () => {
-  const [darkMode, setDarkMode] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
-  // Toggle dark mode
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
 
   const handleSearch = (e) => {
     e.preventDefault();
