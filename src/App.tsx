@@ -1,38 +1,43 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from "sonner";
+import { ThemeProvider } from "next-themes";
+import ScrollToTop from "@/components/ScrollToTop";
+import CategoryPage from "@/pages/CategoryPage";
+import ComponentDetail from "@/pages/ComponentDetail";
+import Index from "@/pages/Index";
+import Auth from "@/pages/Auth";
+import NotFound from "@/pages/NotFound";
+import ProtectedRoute from "@/components/ProtectedRoute";
 import { AuthProvider } from "@/context/AuthContext";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import CategoryPage from "./pages/CategoryPage";
-import ComponentDetail from "./pages/ComponentDetail";
-import Auth from "./pages/Auth";
-import { ScrollToTop } from "@/components/ScrollToTop";
 
-const queryClient = new QueryClient();
+// Import CSS
+import "./App.css";
+import "./styles/button-previews.css";
+import "./styles/components/buttons/social-buttons-card.css";
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
+function App() {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <AuthProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
+        <Router>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/components/:category" element={<CategoryPage />} />
-            <Route path="/components/:category/:componentId" element={<ComponentDetail />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route
+              path="/components/:category/:id"
+              element={<ComponentDetail />}
+            />
+            <Route path="/404" element={<NotFound />} />
+            <Route path="*" element={<Navigate to="/404" replace />} />
           </Routes>
-        </BrowserRouter>
+          <Toaster position="bottom-right" />
+        </Router>
       </AuthProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+    </ThemeProvider>
+  );
+}
 
 export default App;
