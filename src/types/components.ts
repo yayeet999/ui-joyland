@@ -1,3 +1,4 @@
+
 export interface ComponentCategory {
   id: string;
   name: string;
@@ -19,4 +20,6 @@ export interface ComponentItem {
   category: string;
   type?: string;
   code: string;
+  html?: string;
+  css?: string;
 }

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -8,6 +9,7 @@ import { componentData, ComponentCategory } from "@/data/components/index";
 import DetailHeader from "@/components/component-detail/DetailHeader";
 import PreviewSection from "@/components/component-detail/PreviewSection";
 import CodeTabsSection from "@/components/component-detail/CodeTabsSection";
+import { ComponentItem } from "@/types/components";
 
 const ComponentDetail: React.FC = () => {
   const { category, id } = useParams<{ category: string; id: string }>();
@@ -16,7 +18,7 @@ const ComponentDetail: React.FC = () => {
   // Find the component - fixed parameter name to match the route parameter
   const categoryKey = category as ComponentCategory || 'buttons';
   const components = componentData[categoryKey] || [];
-  const component = components.find(c => c.id.toString() === id);
+  const component = components.find(c => c.id.toString() === id) as ComponentItem;
   const categoryName = getCategoryName(categoryKey);
 
   // Set page title

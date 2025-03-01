@@ -2,18 +2,20 @@
 import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import CodeBlock from './CodeBlock';
+import { ComponentItem } from '@/types/components';
 
 interface CodeTabsSectionProps {
-  component: {
-    html: string;
-    css: string;
-    code: string;
-  };
+  component: ComponentItem;
   activeTab: string;
   setActiveTab: (value: string) => void;
 }
 
 const CodeTabsSection: React.FC<CodeTabsSectionProps> = ({ component, activeTab, setActiveTab }) => {
+  // Extract code content or provide fallbacks
+  const htmlCode = component.html || component.code;
+  const cssCode = component.css || '';
+  const fullCode = component.code || '';
+  
   return (
     <Tabs defaultValue="html" value={activeTab} onValueChange={setActiveTab} className="w-full">
       <TabsList className="grid grid-cols-3 mb-4">
@@ -22,13 +24,13 @@ const CodeTabsSection: React.FC<CodeTabsSectionProps> = ({ component, activeTab,
         <TabsTrigger value="full">Full Code</TabsTrigger>
       </TabsList>
       <TabsContent value="html">
-        <CodeBlock code={component.html} language="HTML" />
+        <CodeBlock code={htmlCode} language="HTML" />
       </TabsContent>
       <TabsContent value="css">
-        <CodeBlock code={component.css} language="CSS" />
+        <CodeBlock code={cssCode} language="CSS" />
       </TabsContent>
       <TabsContent value="full">
-        <CodeBlock code={component.code} language="HTML" />
+        <CodeBlock code={fullCode} language="HTML" />
       </TabsContent>
     </Tabs>
   );
