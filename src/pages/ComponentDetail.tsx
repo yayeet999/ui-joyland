@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Copy, ArrowRight, Code } from "lucide-react";
@@ -667,4 +668,4 @@ const ComponentDetail: React.FC = () => {
   );
 };
 
-export default ComponentDetail; 
+export default ComponentDetail;
