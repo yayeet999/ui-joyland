@@ -1,4 +1,3 @@
-
 import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
@@ -8,7 +7,6 @@ import { ComponentCardFactory } from "@/utils/component-factory";
 import { getCategoryName } from "@/utils/category";
 import { buttons } from "@/data/components/buttons";
 import { forms } from "@/data/components/forms";
-import { componentData } from "@/data/components/index";
 
 // Import styles
 import '@/styles/components/buttons/social-buttons-card.css';
@@ -103,9 +101,6 @@ const CategoryPage: React.FC = () => {
   // Determine if we're showing auth forms to adjust grid columns
   const hasAuthForms = categoryKey === 'forms' && 
     (componentType === 'auth' || (!componentType && components.some(comp => comp.type === 'auth')));
-    
-  // Add a new condition to check if we're on the galleries page
-  const isGallery = categoryKey === 'galleries';
 
   return (
     <Layout>
@@ -135,8 +130,7 @@ const CategoryPage: React.FC = () => {
             {components.length > 0 ? (
               <motion.div 
                 className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 ${
-                  hasAuthForms ? 'md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2' : 
-                  isGallery ? 'lg:grid-cols-2 xl:grid-cols-2' : ''
+                  hasAuthForms ? 'md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2' : ''
                 }`}
                 variants={container}
                 initial="hidden"
