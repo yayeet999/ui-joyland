@@ -23,11 +23,11 @@ const AuthWithGoogleFormPreview = () => {
     setName('');
   };
   return <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 px-[16px] py-[2px]">
-      <div className="relative w-full max-w-md overflow-hidden bg-gray-800 p-6 md:p-8 shadow-2xl transition-all duration-300 hover:shadow-[0_0_80px_rgba(59,130,246,0.1)] px-[28px] py-[22px] my-[7px] rounded-3xl">
+      <div className="relative w-full max-w-md overflow-hidden bg-gray-800 p-6 md:p-8 shadow-2xl transition-all duration-300 hover:shadow-[0_0_80px_rgba(59,130,246,0.1)] px-[28px] my-[7px] rounded-3xl py-[17px]">
         <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-50 blur-xl"></div>
         <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-pink-500 to-red-500 opacity-50 blur-xl"></div>
         
-        <div className="relative z-10 backdrop-blur-sm">
+        <div className="relative z-10 backdrop-blur-sm py-0 px-[18px]">
           <div className="mb-4 text-center">
             <h2 className="mb-1 text-2xl md:text-3xl font-bold text-white">
               {isSignUp ? 'Create Account' : 'Welcome Back'}
@@ -39,7 +39,7 @@ const AuthWithGoogleFormPreview = () => {
 
           <div className="mb-4">
             <button type="button" className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg border border-gray-600 bg-gray-700 bg-opacity-50 py-2 px-3 md:py-3 md:px-4 text-sm md:text-base text-white transition-all duration-300 hover:bg-gray-600 hover:shadow-lg active:scale-[0.98]" onClick={() => setIsLoading(true)}>
-              <span className="absolute inset-0 bg-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+              <span className="absolute inset-0 bg-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 px-0"></span>
               <span className="flex h-5 w-5 md:h-6 md:w-6 items-center justify-center transition-transform duration-300 group-hover:scale-110 group-active:scale-95">
                 <svg className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 24 24">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -61,7 +61,7 @@ const AuthWithGoogleFormPreview = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 px-[4px]">
             {isSignUp && <div className="group relative">
                 <label className="mb-1 block text-xs font-medium text-gray-300">Full Name</label>
                 <div className="relative">
