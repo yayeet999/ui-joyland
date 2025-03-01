@@ -56,12 +56,12 @@ const RetroAuthFormPreview = () => {
       setCurrentLevel(3);
     }, 1500);
   };
-  return <div className="retro-bg h-full flex items-center justify-center p-0 overflow-hidden relative">
+  return <div className="retro-bg h-full flex items-center justify-center p-0 overflow-hidden relative rounded-3xl px-[30px] py-[9px] bg-green-300">
       {/* Animated grid background */}
-      <div className="grid-overlay absolute inset-0 z-0"></div>
+      <div className="grid-overlay absolute inset-0 z-0 rounded-3xl px-0 py-0"></div>
       
       {/* Game-inspired container */}
-      <div className="retro-container relative w-full border-4 border-[#FF00FF] shadow-[0_0_10px_rgba(0,255,255,0.5),0_0_20px_rgba(0,255,255,0.3),0_0_30px_rgba(0,255,255,0.1)] overflow-hidden z-10 rounded-3xl px-[40px] py-[28px]">
+      <div className="retro-container relative w-full border-4 border-[#FF00FF] shadow-[0_0_10px_rgba(0,255,255,0.5),0_0_20px_rgba(0,255,255,0.3),0_0_30px_rgba(0,255,255,0.1)] overflow-hidden z-10 rounded-3xl py-[28px] px-[46px]">
         {/* Header with game UI elements */}
         <div className="retro-header p-3 text-center relative py-[14px]">
           <div className="scanline absolute top-0 left-0 w-full h-full"></div>
