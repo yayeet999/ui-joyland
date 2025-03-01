@@ -23,23 +23,23 @@ const AuthWithGoogleFormPreview = () => {
     setName('');
   };
   return <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 px-[16px] py-[2px]">
-      <div className="relative w-full max-w-md overflow-hidden bg-gray-800 p-6 md:p-8 shadow-2xl transition-all duration-300 hover:shadow-[0_0_80px_rgba(59,130,246,0.1)] px-[28px] my-[7px] rounded-3xl py-[17px]">
+      <div className="relative w-full max-w-md overflow-hidden bg-gray-800 p-6 md:p-8 shadow-2xl transition-all duration-300 hover:shadow-[0_0_80px_rgba(59,130,246,0.1)] px-[28px] my-[7px] rounded-3xl py-[4px]">
         <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-50 blur-xl"></div>
-        <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-pink-500 to-red-500 opacity-50 blur-xl"></div>
+        <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-pink-500 to-red-500 opacity-50 blur-xl py-[2px] px-0"></div>
         
-        <div className="relative z-10 backdrop-blur-sm py-0 px-[18px]">
+        <div className="relative z-10 backdrop-blur-sm px-[37px] py-px">
           <div className="mb-4 text-center">
-            <h2 className="mb-1 text-2xl md:text-3xl font-bold text-white">
+            <h2 className="mb-1 text-2xl font-bold text-white md:text-2xl">
               {isSignUp ? 'Create Account' : 'Welcome Back'}
             </h2>
-            <p className="text-sm md:text-base text-gray-400">
+            <p className="text-sm text-gray-400 md:text-sm">
               {isSignUp ? 'Sign up to get started' : 'Sign in to continue'}
             </p>
           </div>
 
           <div className="mb-4">
             <button type="button" className="group relative flex w-full items-center justify-center gap-2 overflow-hidden rounded-lg border border-gray-600 bg-gray-700 bg-opacity-50 py-2 px-3 md:py-3 md:px-4 text-sm md:text-base text-white transition-all duration-300 hover:bg-gray-600 hover:shadow-lg active:scale-[0.98]" onClick={() => setIsLoading(true)}>
-              <span className="absolute inset-0 bg-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 px-0"></span>
+              <span className="absolute inset-0 bg-white/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 px-0 text-base"></span>
               <span className="flex h-5 w-5 md:h-6 md:w-6 items-center justify-center transition-transform duration-300 group-hover:scale-110 group-active:scale-95">
                 <svg className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 24 24">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />
@@ -61,7 +61,7 @@ const AuthWithGoogleFormPreview = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 px-[4px]">
+          <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4 px-0 py-0">
             {isSignUp && <div className="group relative">
                 <label className="mb-1 block text-xs font-medium text-gray-300">Full Name</label>
                 <div className="relative">
@@ -121,7 +121,7 @@ const AuthWithGoogleFormPreview = () => {
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg> : <span>{isSignUp ? 'Create Account' : 'Sign In'}</span>}
               </span>
-              <span className="absolute inset-0 h-full w-full bg-gradient-to-r from-purple-600 to-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></span>
+              <span className="absolute inset-0 h-full w-full bg-gradient-to-r from-purple-600 to-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-base px-0 py-0"></span>
               <span className="absolute top-0 left-0 h-full w-8 -translate-x-10 rotate-12 transform bg-white opacity-0 blur-[10px] transition-all duration-1000 group-hover:translate-x-[200px] group-hover:opacity-30"></span>
             </button>
           </form>
