@@ -8,15 +8,18 @@ interface ComponentCardProps {
   component: {
     id: number;
     name: string;
-    code: string;
+    code?: string;
+    description?: string;
   };
   delay?: number;
 }
 
 const ComponentCard: React.FC<ComponentCardProps> = ({ component, delay = 0 }) => {
   const handleCopyCode = () => {
-    navigator.clipboard.writeText(component.code);
-    toast.success("Code copied to clipboard!");
+    if (component.code) {
+      navigator.clipboard.writeText(component.code);
+      toast.success("Code copied to clipboard!");
+    }
   };
 
   return (
@@ -50,6 +53,9 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component, delay = 0 }) =
       {/* Component Information */}
       <div className="p-4">
         <h3 className="font-medium text-base">{component.name}</h3>
+        {component.description && (
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{component.description}</p>
+        )}
       </div>
     </motion.div>
   );
