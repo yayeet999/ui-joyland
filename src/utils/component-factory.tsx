@@ -1,6 +1,8 @@
+
 import React from 'react';
 import ButtonCard from '@/components/cards/ButtonCard';
 import FormCard from '@/components/cards/FormCard';
+import GalleryCard from '@/components/cards/GalleryCard';
 import GenericComponentCard from '@/components/cards/GenericComponentCard';
 
 interface ComponentFactoryProps {
@@ -16,6 +18,8 @@ export const ComponentCardFactory: React.FC<ComponentFactoryProps> = ({ category
       return <ButtonCard component={component} delay={delay} category={category} />;
     case 'forms':
       return <FormCard component={component} delay={delay} category={category} />;
+    case 'galleries':
+      return <GalleryCard component={component} delay={delay} category={category} />;
     default:
       return <GenericComponentCard component={component} delay={delay} category={category} />;
   }

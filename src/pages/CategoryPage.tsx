@@ -1,3 +1,4 @@
+
 import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
@@ -7,6 +8,7 @@ import { ComponentCardFactory } from "@/utils/component-factory";
 import { getCategoryName } from "@/utils/category";
 import { buttons } from "@/data/components/buttons";
 import { forms } from "@/data/components/forms";
+import { galleries } from "@/data/components/galleries";
 
 // Import styles
 import '@/styles/components/buttons/social-buttons-card.css';
@@ -19,37 +21,19 @@ interface ComponentItem {
   type?: string;
 }
 
-// Mock component data for each category
+// Mock component data for remaining categories
 const mockComponents: Record<string, ComponentItem[]> = {
-  galleries: [
-    { id: 1, name: "Image Grid Gallery", code: "<div>Image Grid Gallery Code Here</div>" },
-    { id: 2, name: "Masonry Gallery", code: "<div>Masonry Gallery Code Here</div>" },
-    { id: 3, name: "Lightbox Gallery", code: "<div>Lightbox Gallery Code Here</div>" },
-    { id: 4, name: "Carousel Gallery", code: "<div>Carousel Gallery Code Here</div>" },
-  ],
   charts: [
     { id: 1, name: "Line Chart", code: "<div>Line Chart Code Here</div>" },
     { id: 2, name: "Bar Chart", code: "<div>Bar Chart Code Here</div>" },
     { id: 3, name: "Pie Chart", code: "<div>Pie Chart Code Here</div>" },
     { id: 4, name: "Area Chart", code: "<div>Area Chart Code Here</div>" },
   ],
-  forms: [
-    { id: 1, name: "Contact Form", code: "<div>Contact Form Code Here</div>" },
-    { id: 2, name: "Login Form", code: "<div>Login Form Code Here</div>" },
-    { id: 3, name: "Registration Form", code: "<div>Registration Form Code Here</div>" },
-    { id: 4, name: "File Upload Form", code: "<div>File Upload Form Code Here</div>" },
-  ],
   pricing: [
     { id: 1, name: "Simple Pricing Table", code: "<div>Simple Pricing Table Code Here</div>" },
     { id: 2, name: "Feature Comparison Table", code: "<div>Feature Comparison Table Code Here</div>" },
     { id: 3, name: "Tiered Pricing Table", code: "<div>Tiered Pricing Table Code Here</div>" },
     { id: 4, name: "Custom Pricing Calculator", code: "<div>Custom Pricing Calculator Code Here</div>" },
-  ],
-  buttons: [
-    { id: 1, name: "Social Media Buttons", code: "<div>Social Media Buttons Code Here</div>" },
-    { id: 2, name: "Animated Buttons", code: "<div>Animated Buttons Code Here</div>" },
-    { id: 3, name: "Icon Buttons", code: "<div>Icon Buttons Code Here</div>" },
-    { id: 4, name: "Gradient Buttons", code: "<div>Gradient Buttons Code Here</div>" },
   ],
   modals: [
     { id: 1, name: "Basic Modal", code: "<div>Basic Modal Code Here</div>" },
@@ -66,18 +50,24 @@ const CategoryPage: React.FC = () => {
   const componentType = queryParams.get('type');
   
   const categoryKey = category || '';
-  let components = categoryKey === 'buttons' 
-    ? buttons 
-    : categoryKey === 'forms'
-    ? forms
-    : mockComponents[categoryKey as keyof typeof mockComponents] || [];
   
-  // Filter components based on type if we're on the buttons or forms page and have a type query param
-  if (componentType) {
-    if (categoryKey === 'buttons' || categoryKey === 'forms') {
-      // Filter components by their type property
-      components = components.filter(comp => comp.type === componentType);
-    }
+  // Determine which data source to use based on category
+  let components = [];
+  if (categoryKey === 'buttons') {
+    components = buttons;
+  } else if (categoryKey === 'forms') {
+    components = forms;
+  } else if (categoryKey === 'galleries') {
+    components = galleries;
+  } else {
+    // Use mock data for other categories
+    components = mockComponents[categoryKey as keyof typeof mockComponents] || [];
+  }
+  
+  // Filter components based on type - but ONLY for categories that support type filtering
+  if (componentType && (categoryKey === 'buttons' || categoryKey === 'forms')) {
+    // Only filter by type for buttons and forms
+    components = components.filter(comp => comp.type === componentType);
   }
   
   const categoryName = getCategoryName(categoryKey);
@@ -98,9 +88,9 @@ const CategoryPage: React.FC = () => {
     }
   };
   
-  // Determine if we're showing auth forms to adjust grid columns
+  // Determine if we're showing auth forms - ONLY check for 'forms' category
   const hasAuthForms = categoryKey === 'forms' && 
-    (componentType === 'auth' || (!componentType && components.some(comp => comp.type === 'auth')));
+    (componentType === 'auth' || (!componentType && forms.some(comp => comp.type === 'auth')));
 
   return (
     <Layout>
