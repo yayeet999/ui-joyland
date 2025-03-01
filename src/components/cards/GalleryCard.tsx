@@ -13,6 +13,11 @@ interface GalleryCardProps {
 }
 
 const GalleryCard: React.FC<GalleryCardProps> = ({ component, delay, category }) => {
+  // Use dangerouslySetInnerHTML to render the component HTML preview
+  const createMarkup = () => {
+    return { __html: component.html || '<div>No preview available</div>' };
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -37,11 +42,9 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ component, delay, category })
             </Button>
           </div>
           
-          {/* Gallery preview placeholder - Gallery-specific */}
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center text-gray-500 dark:text-gray-400">
-              <p>[{component.name} Preview]</p>
-            </div>
+          {/* Gallery preview - render HTML content */}
+          <div className="w-full h-full flex items-center justify-center overflow-hidden">
+            <div className="transform scale-75 w-full h-full" dangerouslySetInnerHTML={createMarkup()} />
           </div>
         </div>
         
