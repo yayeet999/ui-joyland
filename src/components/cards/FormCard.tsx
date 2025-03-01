@@ -61,7 +61,7 @@ const FormCard: React.FC<FormCardProps> = ({
         </div>
         <div className={`relative ${
           isAuthForm 
-            ? 'aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/8]'
+            ? 'aspect-[16/11.5] md:aspect-[16/10.3] lg:aspect-[16/9.2]' // Made approximately 15% taller
             : 'min-h-[200px]'
         } bg-gray-50 dark:bg-gray-900`}>
           <div className="absolute inset-0 flex items-center justify-center p-6 md:p-6 lg:p-8 overflow-auto">
