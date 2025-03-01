@@ -17,9 +17,7 @@ import { Dispatch, SetStateAction } from "react";
 
 // Categories data - reused from CategorySidebarContent to ensure consistency
 const categories = [
-  { id: "sliders", name: "Sliders", href: "/components/sliders" },
   { id: "galleries", name: "Galleries", href: "/components/galleries" },
-  { id: "accordions", name: "Accordions", href: "/components/accordions" },
   { id: "charts", name: "Charts", href: "/components/charts" },
   { 
     id: "forms", 
@@ -42,7 +40,6 @@ const categories = [
     ]
   },
   { id: "modals", name: "Modals", href: "/components/modals" },
-  { id: "navigation", name: "Navigation Bars", href: "/components/navigation" },
   { id: "footers", name: "Footers", href: "/components/footers" },
 ];
 
