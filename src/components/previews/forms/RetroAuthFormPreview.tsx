@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 const RetroAuthFormPreview = () => {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -257,7 +258,8 @@ const RetroAuthFormPreview = () => {
       </div>
       
       {/* CSS keyframe animations */}
-      <style jsx>{`
+      <style>
+        {`
         @keyframes scanline {
           0% { transform: translateY(-100%); }
           100% { transform: translateY(100%); }
@@ -283,10 +285,12 @@ const RetroAuthFormPreview = () => {
           0% { background-position: 0px 0px; }
           100% { background-position: 20px 20px; }
         }
-      `}</style>
+        `}
+      </style>
       
       {/* Background and general styling */}
-      <style jsx>{`
+      <style>
+        {`
         .retro-bg {
           background-color: #000235;
           background-image: radial-gradient(circle at 2% 50%, rgba(0, 255, 255, 0.2) 0%, transparent 100%), 
@@ -315,7 +319,8 @@ const RetroAuthFormPreview = () => {
           animation: scanline 4s linear infinite;
           pointer-events: none;
         }
-      `}</style>
+        `}
+      </style>
     </div>;
 };
 export default RetroAuthFormPreview;

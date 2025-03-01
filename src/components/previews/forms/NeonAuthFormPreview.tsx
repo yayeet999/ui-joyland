@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 const NeonAuthFormPreview = () => {
@@ -184,7 +185,8 @@ const NeonAuthFormPreview = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>
+        {`
         .neon-border {
           box-shadow: 0 0 5px #0ff,
                       inset 0 0 5px #0ff;
@@ -301,7 +303,8 @@ const NeonAuthFormPreview = () => {
             box-shadow: 0 0 20px #0ff;
           }
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

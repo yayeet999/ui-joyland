@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 const MinimalAuthFormPreview = () => {
@@ -200,7 +201,8 @@ const MinimalAuthFormPreview = () => {
         </p>
       </div>
       
-      <style jsx>{`
+      <style>
+        {`
         /* Gradient border animation */
         .animate-border {
           content: '';
@@ -336,7 +338,8 @@ const MinimalAuthFormPreview = () => {
             box-shadow: inset 0px 0px 0px 30px #4ade80;
           }
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 
 const SteppedAuthFormPreview = () => {
@@ -105,7 +106,8 @@ const SteppedAuthFormPreview = () => {
         </div>
       </form>
 
-      <style jsx>{`
+      <style>
+        {`
         /* Variables */
         :root {
           --background: #efefef;
@@ -302,7 +304,8 @@ const SteppedAuthFormPreview = () => {
         .toggle-button:hover {
           color: var(--input-focus);
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };
