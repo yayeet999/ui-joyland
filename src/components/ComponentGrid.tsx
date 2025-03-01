@@ -1,5 +1,5 @@
 
-import { useState, ReactNode } from "react";
+import { useState } from "react";
 import { Copy } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -9,10 +9,9 @@ import { UIComponent } from "@/types/components";
 interface ComponentGridProps {
   components: UIComponent[];
   onCopyCode: (code: string) => void;
-  children?: ReactNode;
 }
 
-const ComponentGrid: React.FC<ComponentGridProps> = ({ components, onCopyCode, children }) => {
+const ComponentGrid: React.FC<ComponentGridProps> = ({ components, onCopyCode }) => {
   const [expandedComponent, setExpandedComponent] = useState<string | null>(null);
 
   const toggleExpand = (id: string) => {
@@ -34,22 +33,7 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ components, onCopyCode, c
     show: { y: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } }
   };
 
-  // If children are provided, render them directly
-  if (children) {
-    return (
-      <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        {children}
-      </motion.div>
-    );
-  }
-
-  // If no components are provided or the array is empty
-  if (!components || components.length === 0) {
+  if (components.length === 0) {
     return (
       <div className="text-center py-16">
         <h3 className="text-xl font-medium mb-2">No components found</h3>

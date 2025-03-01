@@ -170,13 +170,6 @@ const mockComponents = {
       html: "<button class=\"apple-auth-btn\">\n  <div class=\"apple-icon-wrapper\">\n    <svg class=\"apple-icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\">\n      <path fill=\"#ffffff\" d=\"M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z\"/>\n    </svg>\n  </div>\n  <span class=\"button-text\">Sign in with Apple</span>\n</button>",
       css: ".apple-auth-btn {\n  width: 240px;\n  height: 42px;\n  background-color: #000000;\n  border-radius: 6px;\n  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n  border: none;\n  position: relative;\n}\n\n.apple-auth-btn:active {\n  background-color: #1a1a1a;\n  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);\n  transform: translateY(1px);\n}\n\n.apple-auth-btn:hover {\n  background-color: #333333;\n  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);\n}\n\n.apple-icon-wrapper {\n  position: absolute;\n  left: 16px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.apple-icon {\n  width: 18px;\n  height: 18px;\n}\n\n.button-text {\n  color: white;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n  letter-spacing: 0.2px;\n}"
     },
-    { 
-      id: 6, 
-      name: "Submit Button", 
-      code: "<button class=\"submit-button\">\n  <span class=\"button-text\">Submit</span>\n  <svg class=\"arrow-icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line>\n    <polyline points=\"12 5 19 12 12 19\"></polyline>\n  </svg>\n</button>",
-      html: "<button class=\"submit-button\">\n  <span class=\"button-text\">Submit</span>\n  <svg class=\"arrow-icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"></line>\n    <polyline points=\"12 5 19 12 12 19\"></polyline>\n  </svg>\n</button>",
-      css: ".submit-button {\n  width: 140px;\n  height: 48px;\n  background-color: #4f46e5;\n  border-radius: 8px;\n  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n  border: none;\n  padding: 0 24px;\n  gap: 8px;\n  position: relative;\n  overflow: hidden;\n}\n\n.submit-button:active {\n  background-color: #4338ca;\n  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);\n  transform: translateY(1px);\n}\n\n.submit-button:hover {\n  background-color: #4338ca;\n  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);\n}\n\n.submit-button:hover .arrow-icon {\n  transform: translateX(4px);\n}\n\n.button-text {\n  color: white;\n  font-size: 16px;\n  font-weight: 500;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n}\n\n.arrow-icon {\n  width: 18px;\n  height: 18px;\n  stroke: white;\n  transition: transform 0.2s ease;\n}"
-    },
     // Additional components...
   ],
   modals: [
@@ -549,46 +542,6 @@ const ComponentDetail: React.FC = () => {
            width: 18px;
            height: 18px;
          }
-
-         .submit-button-preview {
-           width: 140px;
-           height: 48px;
-           background-color: #4f46e5;
-           border-radius: 8px;
-           box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-           cursor: pointer;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           transition: all 0.2s ease;
-           border: none;
-           padding: 0 24px;
-           gap: 8px;
-           position: relative;
-           overflow: hidden;
-         }
-         
-         .submit-button-preview:active {
-           background-color: #4338ca;
-           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-           transform: translateY(1px);
-         }
-         
-         .submit-button-preview:hover {
-           background-color: #4338ca;
-           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-         }
-         
-         .submit-button-preview:hover .arrow-icon-preview {
-           transform: translateX(4px);
-         }
-         
-         .arrow-icon-preview {
-           width: 18px;
-           height: 18px;
-           stroke: white;
-           transition: transform 0.2s ease;
-         }
         `}
       </style>
       <div className="flex">
@@ -673,14 +626,6 @@ const ComponentDetail: React.FC = () => {
                       </svg>
                     </div>
                     <span className="button-text-preview">Sign in with Apple</span>
-                  </button>
-                ) : component.name === "Submit Button" ? (
-                  <button className="submit-button-preview">
-                    <span className="button-text-preview">Submit</span>
-                    <svg className="arrow-icon-preview" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
                   </button>
                 ) : (
                   <div className="text-center text-gray-500 dark:text-gray-400">
