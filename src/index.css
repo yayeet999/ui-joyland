@@ -1,4 +1,6 @@
 
+@import './styles/button-previews.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

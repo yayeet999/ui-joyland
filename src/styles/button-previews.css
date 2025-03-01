@@ -1,0 +1,208 @@
+
+.google-auth-btn-preview {
+  width: 240px;
+  height: 42px;
+  background-color: #4285f4;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: none;
+  position: relative;
+}
+
+.google-auth-btn-preview:active {
+  background-color: #3367d6;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(1px);
+}
+
+.google-auth-btn-preview:hover {
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.google-icon-wrapper-preview {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-icon-preview {
+  width: 18px;
+  height: 18px;
+}
+
+.button-text-preview {
+  margin-left: 30px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 0.2px;
+}
+
+.github-auth-btn-preview {
+  width: 240px;
+  height: 42px;
+  background-color: #24292e;
+  border-radius: 6px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: none;
+  position: relative;
+}
+
+.github-auth-btn-preview:active {
+  background-color: #1a1e22;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(1px);
+}
+
+.github-auth-btn-preview:hover {
+  background-color: #2b3137;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.github-icon-wrapper-preview {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.github-icon-preview {
+  width: 20px;
+  height: 20px;
+}
+
+.x-auth-btn-preview {
+  width: 240px;
+  height: 42px;
+  background-color: #000000;
+  border-radius: 4px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: none;
+  position: relative;
+}
+
+.x-auth-btn-preview:active {
+  background-color: #333333;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(1px);
+}
+
+.x-auth-btn-preview:hover {
+  background-color: #222222;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.x-icon-wrapper-preview {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.x-icon-preview {
+  width: 18px;
+  height: 18px;
+}
+
+.facebook-auth-btn-preview {
+  width: 240px;
+  height: 42px;
+  background-color: #1877F2;
+  border-radius: 4px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: none;
+  position: relative;
+}
+
+.facebook-auth-btn-preview:active {
+  background-color: #0b5fcc;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(1px);
+}
+
+.facebook-auth-btn-preview:hover {
+  background-color: #166fe5;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.facebook-icon-wrapper-preview {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.facebook-icon-preview {
+  width: 20px;
+  height: 20px;
+}
+
+.apple-auth-btn-preview {
+  width: 240px;
+  height: 42px;
+  background-color: #000000;
+  border-radius: 6px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: none;
+  position: relative;
+}
+
+.apple-auth-btn-preview:active {
+  background-color: #1a1a1a;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(1px);
+}
+
+.apple-auth-btn-preview:hover {
+  background-color: #333333;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);
+}
+
+.apple-icon-wrapper-preview {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.apple-icon-preview {
+  width: 18px;
+  height: 18px;
+}
