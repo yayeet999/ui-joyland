@@ -11,13 +11,13 @@ import PreviewSection from "@/components/component-detail/PreviewSection";
 import CodeTabsSection from "@/components/component-detail/CodeTabsSection";
 
 const ComponentDetail: React.FC = () => {
-  const { category, componentId } = useParams<{ category: string; componentId: string }>();
+  const { category, id } = useParams<{ category: string; id: string }>();
   const [activeTab, setActiveTab] = useState<string>("html");
   
-  // Find the component
+  // Find the component - fixed parameter name to match the route parameter
   const categoryKey = category as ComponentCategory || 'buttons';
   const components = componentData[categoryKey] || [];
-  const component = components.find(c => c.id.toString() === componentId);
+  const component = components.find(c => c.id.toString() === id);
   const categoryName = getCategoryName(categoryKey);
 
   // Set page title
