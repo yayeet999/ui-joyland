@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import CategoryGrid from "@/components/CategoryGrid";
 import { motion } from "framer-motion";
@@ -24,9 +23,9 @@ const Index = () => {
           <div className="absolute inset-y-0 right-1/4 w-1/5 bg-accent-blue/5 transform skew-x-12"></div>
         </div>
         
-        <div className="container relative mx-auto px-4 py-20 md:py-32">
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
           <motion.div 
-            className="text-center max-w-4xl mx-auto"
+            className="text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -78,7 +77,7 @@ const Index = () => {
       </div>
       
       {/* Categories Section */}
-      <div id="categories" className="container mx-auto px-4 py-16">
+      <div id="categories" className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0 }}
@@ -86,7 +85,7 @@ const Index = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <h2 className="text-3xl font-bold mb-4">Explore Components by Category</h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Browse our collection of UI components organized by category. Click on any category to explore.
           </p>
         </motion.div>

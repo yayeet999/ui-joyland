@@ -1,4 +1,3 @@
-
 import React, { useState, ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -28,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
-      <main className="flex-grow">
+      <main className="flex-grow w-full">
         {children}
       </main>
       <Footer />
