@@ -33,7 +33,10 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ components, onCopyCode })
     show: { y: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } }
   };
 
-  if (components.length === 0) {
+  // Filter out the Submit Button component
+  const filteredComponents = components.filter(component => component.name !== "Submit Button");
+
+  if (filteredComponents.length === 0) {
     return (
       <div className="text-center py-16">
         <h3 className="text-xl font-medium mb-2">No components found</h3>
@@ -51,7 +54,7 @@ const ComponentGrid: React.FC<ComponentGridProps> = ({ components, onCopyCode })
       initial="hidden"
       animate="show"
     >
-      {components.map((component) => (
+      {filteredComponents.map((component) => (
         <motion.div
           key={component.id}
           className={`rounded-xl border border-gray-200 dark:border-gray-800 overflow-hidden bg-white dark:bg-gray-800 
