@@ -1,3 +1,12 @@
+// Category names mapping
+export const categoryNames: { [key: string]: string } = {
+  galleries: "Galleries",
+  charts: "Charts",
+  forms: "Forms",
+  pricing: "Pricing Tables",
+  buttons: "Buttons",
+  modals: "Modals",
+};
 
 // Helper function to get a user-friendly category name
 export const getCategoryName = (category: string): string => {

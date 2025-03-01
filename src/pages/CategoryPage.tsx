@@ -1,4 +1,3 @@
-
 import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
@@ -20,55 +19,43 @@ interface ComponentItem {
   type?: string;
 }
 
-// Mock component data (to be replaced with actual data in the future)
+// Mock component data for each category
 const mockComponents: Record<string, ComponentItem[]> = {
-  sliders: [
-    { id: 1, name: "Responsive Carousel Slider", code: "<div>Carousel Slider Code Here</div>" },
-    { id: 2, name: "Range Slider with Labels", code: "<div>Range Slider Code Here</div>" },
-    { id: 3, name: "Image Comparison Slider", code: "<div>Image Comparison Code Here</div>" },
-    { id: 4, name: "Multi-handle Slider", code: "<div>Multi-handle Slider Code Here</div>" },
-  ],
-  pricing: [
-    { id: 1, name: "Tiered Pricing Table", code: "<div>Tiered Pricing Table Code Here</div>" },
-    { id: 2, name: "Comparison Pricing Grid", code: "<div>Comparison Pricing Grid Code Here</div>" },
-    { id: 3, name: "Toggle Monthly/Annual Pricing", code: "<div>Toggle Pricing Code Here</div>" },
-    { id: 4, name: "Feature-focused Pricing Table", code: "<div>Feature Pricing Code Here</div>" },
-  ],
-  accordions: [
-    { id: 1, name: "Simple Accordion", code: "<div>Simple Accordion Code Here</div>" },
-    { id: 2, name: "Nested Accordion", code: "<div>Nested Accordion Code Here</div>" },
-    { id: 3, name: "FAQ Accordion", code: "<div>FAQ Accordion Code Here</div>" },
-    { id: 4, name: "Animated Accordion", code: "<div>Animated Accordion Code Here</div>" },
+  galleries: [
+    { id: 1, name: "Image Grid Gallery", code: "<div>Image Grid Gallery Code Here</div>" },
+    { id: 2, name: "Masonry Gallery", code: "<div>Masonry Gallery Code Here</div>" },
+    { id: 3, name: "Lightbox Gallery", code: "<div>Lightbox Gallery Code Here</div>" },
+    { id: 4, name: "Carousel Gallery", code: "<div>Carousel Gallery Code Here</div>" },
   ],
   charts: [
-    { id: 1, name: "Bar Chart", code: "<div>Bar Chart Code Here</div>" },
-    { id: 2, name: "Line Chart", code: "<div>Line Chart Code Here</div>" },
+    { id: 1, name: "Line Chart", code: "<div>Line Chart Code Here</div>" },
+    { id: 2, name: "Bar Chart", code: "<div>Bar Chart Code Here</div>" },
     { id: 3, name: "Pie Chart", code: "<div>Pie Chart Code Here</div>" },
     { id: 4, name: "Area Chart", code: "<div>Area Chart Code Here</div>" },
   ],
-  galleries: [
-    { id: 1, name: "Masonry Gallery", code: "<div>Masonry Gallery Code Here</div>" },
-    { id: 2, name: "Lightbox Gallery", code: "<div>Lightbox Gallery Code Here</div>" },
-    { id: 3, name: "Carousel Gallery", code: "<div>Carousel Gallery Code Here</div>" },
-    { id: 4, name: "Grid Gallery", code: "<div>Grid Gallery Code Here</div>" },
+  forms: [
+    { id: 1, name: "Contact Form", code: "<div>Contact Form Code Here</div>" },
+    { id: 2, name: "Login Form", code: "<div>Login Form Code Here</div>" },
+    { id: 3, name: "Registration Form", code: "<div>Registration Form Code Here</div>" },
+    { id: 4, name: "File Upload Form", code: "<div>File Upload Form Code Here</div>" },
+  ],
+  pricing: [
+    { id: 1, name: "Simple Pricing Table", code: "<div>Simple Pricing Table Code Here</div>" },
+    { id: 2, name: "Feature Comparison Table", code: "<div>Feature Comparison Table Code Here</div>" },
+    { id: 3, name: "Tiered Pricing Table", code: "<div>Tiered Pricing Table Code Here</div>" },
+    { id: 4, name: "Custom Pricing Calculator", code: "<div>Custom Pricing Calculator Code Here</div>" },
+  ],
+  buttons: [
+    { id: 1, name: "Social Media Buttons", code: "<div>Social Media Buttons Code Here</div>" },
+    { id: 2, name: "Animated Buttons", code: "<div>Animated Buttons Code Here</div>" },
+    { id: 3, name: "Icon Buttons", code: "<div>Icon Buttons Code Here</div>" },
+    { id: 4, name: "Gradient Buttons", code: "<div>Gradient Buttons Code Here</div>" },
   ],
   modals: [
     { id: 1, name: "Basic Modal", code: "<div>Basic Modal Code Here</div>" },
     { id: 2, name: "Confirmation Modal", code: "<div>Confirmation Modal Code Here</div>" },
     { id: 3, name: "Fullscreen Modal", code: "<div>Fullscreen Modal Code Here</div>" },
-    { id: 4, name: "Drawer Modal", code: "<div>Drawer Modal Code Here</div>" },
-  ],
-  navigation: [
-    { id: 1, name: "Responsive Navbar", code: "<div>Responsive Navbar Code Here</div>" },
-    { id: 2, name: "Sidebar Navigation", code: "<div>Sidebar Navigation Code Here</div>" },
-    { id: 3, name: "Breadcrumbs", code: "<div>Breadcrumbs Code Here</div>" },
-    { id: 4, name: "Tab Navigation", code: "<div>Tab Navigation Code Here</div>" },
-  ],
-  footers: [
-    { id: 1, name: "Simple Footer", code: "<div>Simple Footer Code Here</div>" },
-    { id: 2, name: "Multi-column Footer", code: "<div>Multi-column Footer Code Here</div>" },
-    { id: 3, name: "Dark Footer with Newsletter", code: "<div>Dark Footer Code Here</div>" },
-    { id: 4, name: "Sticky Footer", code: "<div>Sticky Footer Code Here</div>" },
+    { id: 4, name: "Animated Modal", code: "<div>Animated Modal Code Here</div>" },
   ],
 };
 
