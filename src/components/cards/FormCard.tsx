@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -48,7 +49,7 @@ const FormCard: React.FC<FormCardProps> = ({
             </Link>
           </Button>
         </div>
-        <div className={`relative ${isAuthForm ? 'aspect-[16/14] md:aspect-[16/12.5] lg:aspect-[16/11]' // Made significantly taller at all breakpoints
+        <div className={`relative ${isAuthForm ? 'aspect-[16/16] md:aspect-[16/14] lg:aspect-[16/13]' // Made significantly taller at all breakpoints
       : 'min-h-[200px]'} bg-gray-50 dark:bg-gray-900`}>
           <div className="absolute inset-0 flex items-center justify-center p-6 md:p-6 lg:p-8 overflow-auto py-0">
             <div className={`w-full ${isAuthForm ? 'max-w-md md:max-w-lg lg:max-w-xl transform scale-95 md:scale-100' : ''}`}>
