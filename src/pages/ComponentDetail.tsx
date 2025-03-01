@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -54,7 +53,7 @@ const ComponentDetail: React.FC = () => {
         
         {/* Main Content */}
         <div className="flex-1 overflow-hidden">
-          <div className="container mx-auto px-4 py-8">
+          <div className="w-full px-0 sm:px-6 lg:px-8 py-8">
             {/* Header with back button and title */}
             <DetailHeader 
               categoryName={categoryName} 

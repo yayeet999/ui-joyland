@@ -77,7 +77,7 @@ const Index = () => {
       </div>
       
       {/* Categories Section */}
-      <div id="categories" className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div id="categories" className="w-full px-0 sm:px-6 lg:px-8 py-16">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0 }}

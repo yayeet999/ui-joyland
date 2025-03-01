@@ -6,6 +6,7 @@ import CategorySidebar from "@/components/CategorySidebar";
 import { ComponentCardFactory } from "@/utils/component-factory";
 import { getCategoryName } from "@/utils/category";
 import { buttons } from "@/data/components/buttons";
+import { forms } from "@/data/components/forms";
 
 // Import styles
 import '@/styles/components/buttons/social-buttons-card.css';
@@ -25,12 +26,6 @@ const mockComponents: Record<string, ComponentItem[]> = {
     { id: 2, name: "Range Slider with Labels", code: "<div>Range Slider Code Here</div>" },
     { id: 3, name: "Image Comparison Slider", code: "<div>Image Comparison Code Here</div>" },
     { id: 4, name: "Multi-handle Slider", code: "<div>Multi-handle Slider Code Here</div>" },
-  ],
-  forms: [
-    { id: 1, name: "Contact Form with Validation", code: "<div>Contact Form Code Here</div>" },
-    { id: 2, name: "Multi-step Form", code: "<div>Multi-step Form Code Here</div>" },
-    { id: 3, name: "Subscription Form", code: "<div>Subscription Form Code Here</div>" },
-    { id: 4, name: "Inline Editing Form", code: "<div>Inline Editing Form Code Here</div>" },
   ],
   pricing: [
     { id: 1, name: "Tiered Pricing Table", code: "<div>Tiered Pricing Table Code Here</div>" },
@@ -80,33 +75,30 @@ const CategoryPage: React.FC = () => {
   const { category } = useParams<{ category: string }>();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const buttonType = queryParams.get('type');
+  const componentType = queryParams.get('type');
   
   const categoryKey = category || '';
-  let components = categoryKey === 'buttons' ? buttons : mockComponents[categoryKey as keyof typeof mockComponents] || [];
+  let components = categoryKey === 'buttons' 
+    ? buttons 
+    : categoryKey === 'forms'
+    ? forms
+    : mockComponents[categoryKey as keyof typeof mockComponents] || [];
   
-  // Filter components based on button type if we're on the buttons page and have a type query param
-  if (categoryKey === 'buttons' && buttonType) {
-    // Filter buttons by their type property
-    if (buttonType === 'social') {
-      // Show only social buttons
-      components = components.filter(comp => comp.type === 'social');
-    } else if (buttonType === 'functional') {
-      // Show only functional buttons
-      components = components.filter(comp => comp.type === 'functional');
-    } else if (buttonType === 'creative') {
-      // Show only creative buttons
-      components = components.filter(comp => comp.type === 'creative');
+  // Filter components based on type if we're on the buttons or forms page and have a type query param
+  if (componentType) {
+    if (categoryKey === 'buttons' || categoryKey === 'forms') {
+      // Filter components by their type property
+      components = components.filter(comp => comp.type === componentType);
     }
   }
   
   const categoryName = getCategoryName(categoryKey);
-  const buttonTypeLabel = buttonType ? ` - ${buttonType.charAt(0).toUpperCase() + buttonType.slice(1)}` : '';
+  const typeLabel = componentType ? ` - ${componentType.charAt(0).toUpperCase() + componentType.slice(1)}` : '';
 
   // Set page title
   useEffect(() => {
-    document.title = `${categoryName}${buttonTypeLabel} | UIverse.ai`;
-  }, [categoryName, buttonTypeLabel]);
+    document.title = `${categoryName}${typeLabel} | UIverse.ai`;
+  }, [categoryName, typeLabel]);
 
   const container = {
     hidden: { opacity: 0 },
@@ -126,7 +118,7 @@ const CategoryPage: React.FC = () => {
         
         {/* Main Content */}
         <div className="flex-1 overflow-hidden">
-          <div className="container mx-auto px-4 py-8">
+          <div className="w-full px-0 sm:px-6 lg:px-8 py-8">
             <div className="flex items-center mb-8">
               {/* Mobile category menu button rendered within CategorySidebar */}
               <div className="lg:hidden">
@@ -135,10 +127,10 @@ const CategoryPage: React.FC = () => {
               
               <div className="flex-1">
                 <h1 className="text-3xl font-bold">
-                  {categoryName}{buttonType && <span className="text-accent-purple"> - {buttonType.charAt(0).toUpperCase() + buttonType.slice(1)}</span>}
+                  {categoryName}{typeLabel && <span className="text-accent-purple"> - {typeLabel.charAt(0).toUpperCase() + typeLabel.slice(1)}</span>}
                 </h1>
                 <p className="text-gray-600 dark:text-gray-400 mt-2">
-                  Browse and copy our collection of {categoryName.toLowerCase()}{buttonType && ` ${buttonType}`} components
+                  Browse and copy our collection of {categoryName.toLowerCase()}{typeLabel && ` ${typeLabel}`} components
                 </p>
               </div>
             </div>

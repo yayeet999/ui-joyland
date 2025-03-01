@@ -21,7 +21,15 @@ const categories = [
   { id: "galleries", name: "Galleries", href: "/components/galleries" },
   { id: "accordions", name: "Accordions", href: "/components/accordions" },
   { id: "charts", name: "Charts", href: "/components/charts" },
-  { id: "forms", name: "Forms", href: "/components/forms" },
+  { 
+    id: "forms", 
+    name: "Forms", 
+    href: "/components/forms",
+    subCategories: [
+      { id: "auth", name: "Auth", href: "/components/forms?type=auth" },
+      { id: "misc", name: "Misc", href: "/components/forms?type=misc" }
+    ]
+  },
   { id: "pricing", name: "Pricing Tables", href: "/components/pricing" },
   { 
     id: "buttons", 
@@ -73,7 +81,7 @@ export const Header = ({ darkMode, setDarkMode, searchQuery, setSearchQuery }: H
 
   return (
     <header className="border-b sticky top-0 z-50 bg-background">
-      <div className="container h-16 flex items-center justify-between">
+      <div className="w-full px-0 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <div className="flex items-center gap-6">
           <Link to="/" className="font-bold text-xl lg:text-2xl flex items-center gap-1">
             <span className="text-accent-purple">UI</span>Arcade

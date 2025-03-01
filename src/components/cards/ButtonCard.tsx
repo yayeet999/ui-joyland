@@ -56,7 +56,7 @@ const ButtonCard: React.FC<ButtonCardProps> = ({ component, delay, category }) =
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: delay * 0.1 }}
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden"
+      className="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden col-span-1"
     >
       {/* Component Preview */}
       <div className="relative">

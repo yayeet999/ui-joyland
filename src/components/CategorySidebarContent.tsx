@@ -20,7 +20,16 @@ const categories = [
   { id: "galleries", name: "Galleries", icon: GalleryIcon, href: "/components/galleries" },
   { id: "accordions", name: "Accordions", icon: ChevronDown, href: "/components/accordions" },
   { id: "charts", name: "Charts", icon: BarChart3, href: "/components/charts" },
-  { id: "forms", name: "Forms", icon: FileText, href: "/components/forms" },
+  { 
+    id: "forms", 
+    name: "Forms", 
+    icon: FileText, 
+    href: "/components/forms",
+    subCategories: [
+      { id: "auth", name: "Auth", href: "/components/forms?type=auth" },
+      { id: "misc", name: "Misc", href: "/components/forms?type=misc" }
+    ]
+  },
   { id: "pricing", name: "Pricing Tables", icon: DollarSign, href: "/components/pricing" },
   { 
     id: "buttons", 
