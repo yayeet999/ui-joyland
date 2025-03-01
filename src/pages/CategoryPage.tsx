@@ -1,4 +1,3 @@
-
 import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
@@ -6,6 +5,7 @@ import Layout from "@/components/Layout";
 import CategorySidebar from "@/components/CategorySidebar";
 import { ComponentCardFactory } from "@/utils/component-factory";
 import { getCategoryName } from "@/utils/category";
+import { buttons } from "@/data/components/buttons";
 
 // Import styles
 import '@/styles/components/buttons/social-buttons-card.css';
@@ -56,21 +56,6 @@ const mockComponents: Record<string, ComponentItem[]> = {
     { id: 3, name: "Carousel Gallery", code: "<div>Carousel Gallery Code Here</div>" },
     { id: 4, name: "Grid Gallery", code: "<div>Grid Gallery Code Here</div>" },
   ],
-  buttons: [
-    // Social buttons
-    { id: 1, name: "Facebook Auth Button", code: "<div>Facebook Auth Button Code Here</div>", type: "social" },
-    { id: 2, name: "X Auth Button", code: "<div>X Auth Button Code Here</div>", type: "social" },
-    { id: 3, name: "Github Auth Button", code: "<div>Github Auth Button Code Here</div>", type: "social" },
-    { id: 4, name: "Google Auth Button", code: "<div>Google Auth Button Code Here</div>", type: "social" },
-    { id: 5, name: "Apple Auth Button", code: "<div>Apple Auth Button Code Here</div>", type: "social" },
-    // Functional buttons
-    { id: 6, name: "Submit Button", code: "<div>Submit Button Code Here</div>", type: "functional" },
-    { id: 7, name: "Download Button", code: "<div>Download Button Code Here</div>", type: "functional" },
-    { id: 8, name: "Download Progress Button", code: "<div>Download Progress Button Code Here</div>", type: "functional" },
-    // Creative buttons
-    { id: 9, name: "Neon Button", code: "<div>Neon Button Code Here</div>", type: "creative" },
-    { id: 10, name: "3D Button", code: "<div>3D Button Code Here</div>", type: "creative" },
-  ],
   modals: [
     { id: 1, name: "Basic Modal", code: "<div>Basic Modal Code Here</div>" },
     { id: 2, name: "Confirmation Modal", code: "<div>Confirmation Modal Code Here</div>" },
@@ -98,7 +83,7 @@ const CategoryPage: React.FC = () => {
   const buttonType = queryParams.get('type');
   
   const categoryKey = category || '';
-  let components = mockComponents[categoryKey as keyof typeof mockComponents] || [];
+  let components = categoryKey === 'buttons' ? buttons : mockComponents[categoryKey as keyof typeof mockComponents] || [];
   
   // Filter components based on button type if we're on the buttons page and have a type query param
   if (categoryKey === 'buttons' && buttonType) {
