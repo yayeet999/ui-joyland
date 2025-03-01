@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -6,6 +5,10 @@ import { Button } from '@/components/ui/button';
 import { motion } from "framer-motion";
 import AuthWithGoogleFormPreview from '@/components/previews/forms/AuthWithGoogleFormPreview';
 import RetroAuthFormPreview from '@/components/previews/forms/RetroAuthFormPreview';
+import MinimalAuthFormPreview from '@/components/previews/forms/MinimalAuthFormPreview';
+import GlassAuthFormPreview from '@/components/previews/forms/GlassAuthFormPreview';
+import NeonAuthFormPreview from '@/components/previews/forms/NeonAuthFormPreview';
+import SteppedAuthFormPreview from '@/components/previews/forms/SteppedAuthFormPreview';
 
 interface FormCardProps {
   component: any;
@@ -28,6 +31,14 @@ const FormCard: React.FC<FormCardProps> = ({
         return <AuthWithGoogleFormPreview />;
       case "Retro-game Auth Form":
         return <RetroAuthFormPreview />;
+      case "Minimal Auth Form":
+        return <MinimalAuthFormPreview />;
+      case "Glass Auth Form":
+        return <GlassAuthFormPreview />;
+      case "Neon Auth Form":
+        return <NeonAuthFormPreview />;
+      case "Stepped Auth Form":
+        return <SteppedAuthFormPreview />;
       default:
         return <div className="text-center text-gray-500 dark:text-gray-400">
           <p className="text-sm">[Interactive {component.name} Preview]</p>
