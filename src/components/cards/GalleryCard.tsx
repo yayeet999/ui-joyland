@@ -18,6 +18,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ component, delay, category })
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: delay * 0.1 }}
+      className="h-full"
     >
       <Card className="overflow-hidden h-full border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
         {/* Preview Area */}
@@ -47,6 +48,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ component, delay, category })
         {/* Component Info */}
         <CardContent className="p-4">
           <h3 className="font-medium">{component.name}</h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{component.description || 'Gallery component for image display'}</p>
         </CardContent>
       </Card>
     </motion.div>
