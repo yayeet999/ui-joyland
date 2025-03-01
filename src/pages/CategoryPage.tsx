@@ -64,9 +64,9 @@ const CategoryPage: React.FC = () => {
     components = mockComponents[categoryKey as keyof typeof mockComponents] || [];
   }
   
-  // Filter components based on type - but ONLY for categories that support type filtering
-  if (componentType && (categoryKey === 'buttons' || categoryKey === 'forms')) {
-    // Only filter by type for buttons and forms
+  // Filter components based on type - ONLY for categories that support type filtering
+  // Explicitly exclude galleries from type filtering
+  if (componentType && categoryKey !== 'galleries' && (categoryKey === 'buttons' || categoryKey === 'forms')) {
     components = components.filter(comp => comp.type === componentType);
   }
   
@@ -88,9 +88,25 @@ const CategoryPage: React.FC = () => {
     }
   };
   
-  // Determine if we're showing auth forms - ONLY check for 'forms' category
+  // This check is ONLY for forms - completely independent from galleries
   const hasAuthForms = categoryKey === 'forms' && 
     (componentType === 'auth' || (!componentType && forms.some(comp => comp.type === 'auth')));
+    
+  // Define a function to determine grid layout class based on category
+  const getGridLayoutClass = () => {
+    // Special case for galleries - always use 2-column layout for larger screens
+    if (categoryKey === 'galleries') {
+      return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-8';
+    }
+    
+    // Special case for auth forms
+    if (hasAuthForms) {
+      return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-8';
+    }
+    
+    // Default grid layout for other categories
+    return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8';
+  };
 
   return (
     <Layout>
@@ -119,9 +135,7 @@ const CategoryPage: React.FC = () => {
             
             {components.length > 0 ? (
               <motion.div 
-                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 ${
-                  hasAuthForms ? 'md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2' : ''
-                }`}
+                className={getGridLayoutClass()}
                 variants={container}
                 initial="hidden"
                 animate="show"
