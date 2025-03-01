@@ -1,3 +1,4 @@
+
 import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
@@ -7,6 +8,7 @@ import { ComponentCardFactory } from "@/utils/component-factory";
 import { getCategoryName } from "@/utils/category";
 import { buttons } from "@/data/components/buttons";
 import { forms } from "@/data/components/forms";
+import { componentData } from "@/data/components/index";
 
 // Import styles
 import '@/styles/components/buttons/social-buttons-card.css';
