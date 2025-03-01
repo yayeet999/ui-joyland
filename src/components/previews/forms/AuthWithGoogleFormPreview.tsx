@@ -23,7 +23,7 @@ const AuthWithGoogleFormPreview = () => {
     setName('');
   };
   return <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 px-[16px] py-[2px]">
-      <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-gray-800 p-6 md:p-8 shadow-2xl transition-all duration-300 hover:shadow-[0_0_80px_rgba(59,130,246,0.1)]">
+      <div className="relative w-full max-w-md overflow-hidden bg-gray-800 p-6 md:p-8 shadow-2xl transition-all duration-300 hover:shadow-[0_0_80px_rgba(59,130,246,0.1)] px-[28px] py-[22px] my-[7px] rounded-3xl">
         <div className="absolute -left-8 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-50 blur-xl"></div>
         <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-gradient-to-br from-pink-500 to-red-500 opacity-50 blur-xl"></div>
         
