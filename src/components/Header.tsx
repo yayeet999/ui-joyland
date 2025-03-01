@@ -22,7 +22,16 @@ const categories = [
   { id: "charts", name: "Charts", href: "/components/charts" },
   { id: "forms", name: "Forms", href: "/components/forms" },
   { id: "pricing", name: "Pricing Tables", href: "/components/pricing" },
-  { id: "buttons", name: "Buttons", href: "/components/buttons" },
+  { 
+    id: "buttons", 
+    name: "Buttons", 
+    href: "/components/buttons",
+    subCategories: [
+      { id: "social", name: "Social", href: "/components/buttons?type=social" },
+      { id: "functional", name: "Functional", href: "/components/buttons?type=functional" },
+      { id: "creative", name: "Creative", href: "/components/buttons?type=creative" }
+    ]
+  },
   { id: "modals", name: "Modals", href: "/components/modals" },
   { id: "navigation", name: "Navigation Bars", href: "/components/navigation" },
   { id: "footers", name: "Footers", href: "/components/footers" },
@@ -36,6 +45,7 @@ export const Header = () => {
   );
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
+  const currentPath = location.pathname + location.search;
   const isCategory = isCategoryPage(location.pathname);
 
   const closeSidebar = () => setIsSidebarOpen(false);
@@ -71,8 +81,8 @@ export const Header = () => {
     <header className="border-b sticky top-0 z-50 bg-background">
       <div className="container h-16 flex items-center justify-between">
         <div className="flex items-center gap-6">
-          <Link to="/" className="font-bold text-xl flex items-center gap-1">
-            <span className="text-accent-purple">UI</span>Joyland
+          <Link to="/" className="font-bold text-xl lg:text-2xl flex items-center gap-1">
+            <span className="text-accent-purple">UI</span>Arcade
           </Link>
           
           {/* UI Components Dropdown - Only visible on large screens */}
@@ -86,11 +96,33 @@ export const Header = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-56">
                 {categories.map((category) => (
-                  <DropdownMenuItem key={category.id} asChild className="text-base">
-                    <Link to={category.href} className="w-full">
-                      {category.name}
-                    </Link>
-                  </DropdownMenuItem>
+                  category.subCategories ? (
+                    <div key={category.id}>
+                      <DropdownMenuItem asChild className={`text-base font-medium ${category.href === currentPath ? "bg-accent-purple/10 text-accent-purple" : ""}`}>
+                        <Link to={category.href} className="w-full">
+                          {category.name}
+                        </Link>
+                      </DropdownMenuItem>
+                      <div className="pl-4 py-1">
+                        {category.subCategories.map((subCategory) => {
+                          const isActive = subCategory.href === currentPath;
+                          return (
+                            <DropdownMenuItem key={subCategory.id} asChild className={`text-sm ${isActive ? "bg-accent-purple/10 text-accent-purple" : ""}`}>
+                              <Link to={subCategory.href} className="w-full">
+                                {subCategory.name}
+                              </Link>
+                            </DropdownMenuItem>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ) : (
+                    <DropdownMenuItem key={category.id} asChild className={`text-base ${category.href === currentPath ? "bg-accent-purple/10 text-accent-purple" : ""}`}>
+                      <Link to={category.href} className="w-full">
+                        {category.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  )
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
