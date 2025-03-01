@@ -1,3 +1,4 @@
+
 import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
@@ -65,9 +66,10 @@ const mockComponents: Record<string, ComponentItem[]> = {
     // Functional buttons
     { id: 6, name: "Submit Button", code: "<div>Submit Button Code Here</div>", type: "functional" },
     { id: 7, name: "Download Button", code: "<div>Download Button Code Here</div>", type: "functional" },
+    { id: 8, name: "Download Progress Button", code: "<div>Download Progress Button Code Here</div>", type: "functional" },
     // Creative buttons
-    { id: 8, name: "Neon Button", code: "<div>Neon Button Code Here</div>", type: "creative" },
-    { id: 9, name: "3D Button", code: "<div>3D Button Code Here</div>", type: "creative" },
+    { id: 9, name: "Neon Button", code: "<div>Neon Button Code Here</div>", type: "creative" },
+    { id: 10, name: "3D Button", code: "<div>3D Button Code Here</div>", type: "creative" },
   ],
   modals: [
     { id: 1, name: "Basic Modal", code: "<div>Basic Modal Code Here</div>" },
