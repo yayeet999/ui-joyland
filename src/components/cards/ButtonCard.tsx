@@ -7,12 +7,12 @@ import FacebookButtonPreview from '@/components/previews/buttons/FacebookButtonP
 import XButtonPreview from '@/components/previews/buttons/XButtonPreview';
 import GithubButtonPreview from '@/components/previews/buttons/GithubButtonPreview';
 import GoogleButtonPreview from '@/components/previews/buttons/GoogleButtonPreview';
-import GoogleAuth2ButtonPreview from '@/components/previews/buttons/GoogleAuth2ButtonPreview.tsx';
+import GoogleAuth2ButtonPreview from '@/components/previews/buttons/GoogleAuth2ButtonPreview';
 import AppleButtonPreview from '@/components/previews/buttons/AppleButtonPreview';
 import SubmitButtonPreview from '@/components/previews/buttons/SubmitButtonPreview';
 import DownloadButtonPreview from '@/components/previews/buttons/DownloadButtonPreview';
 import DownloadProgressButtonPreview from '@/components/previews/buttons/DownloadProgressButtonPreview';
-import XAuth2ButtonPreview from '../previews/buttons/XAuth2ButtonPreview';
+import XAuth2ButtonPreview from '@/components/previews/buttons/XAuth2ButtonPreview';
 
 interface ButtonCardProps {
   component: any;
