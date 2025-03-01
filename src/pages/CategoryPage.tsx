@@ -143,7 +143,7 @@ const CategoryPage: React.FC = () => {
             {components.length > 0 ? (
               <motion.div 
                 className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 ${
-                  hasAuthForms ? 'md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6' : ''
+                  hasAuthForms ? 'md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2' : ''
                 }`}
                 variants={container}
                 initial="hidden"
