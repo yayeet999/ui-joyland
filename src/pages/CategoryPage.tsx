@@ -92,17 +92,6 @@ const CategoryPage: React.FC = () => {
   const hasAuthForms = categoryKey === 'forms' && 
     (componentType === 'auth' || (!componentType && forms.some(comp => comp.type === 'auth')));
 
-  // Get the appropriate grid layout based on category
-  const getGridLayoutClass = () => {
-    if (hasAuthForms) {
-      return 'md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2';
-    } else if (categoryKey === 'galleries') {
-      return 'md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2'; // Two column layout for galleries
-    } else {
-      return 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'; // Default layout for other categories
-    }
-  };
-
   return (
     <Layout>
       <div className="flex">
@@ -130,7 +119,9 @@ const CategoryPage: React.FC = () => {
             
             {components.length > 0 ? (
               <motion.div 
-                className={`grid grid-cols-1 ${getGridLayoutClass()} gap-6 md:gap-8`}
+                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8 ${
+                  hasAuthForms ? 'md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2' : ''
+                }`}
                 variants={container}
                 initial="hidden"
                 animate="show"

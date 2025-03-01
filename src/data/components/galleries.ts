@@ -4,7 +4,6 @@ export const galleries = [
   { 
     id: 1, 
     name: "Masonry Gallery", 
-    description: "Dynamic layout with varied size images in a clean grid",
     code: `<div class="masonry-gallery">
   <div class="masonry-item"><img src="/placeholder.svg" alt="Gallery item 1" /></div>
   <div class="masonry-item"><img src="/placeholder.svg" alt="Gallery item 2" /></div>
@@ -40,7 +39,6 @@ export const galleries = [
   { 
     id: 2, 
     name: "Grid Gallery", 
-    description: "Uniform grid layout perfect for showcasing consistent image collections",
     code: `<div class="grid-gallery">
   <div class="grid-item"><img src="/placeholder.svg" alt="Gallery item 1" /></div>
   <div class="grid-item"><img src="/placeholder.svg" alt="Gallery item 2" /></div>
@@ -74,7 +72,6 @@ export const galleries = [
   { 
     id: 3, 
     name: "Lightbox Gallery", 
-    description: "Interactive gallery with image zoom functionality on click",
     code: `<div class="lightbox-gallery">
   <div class="lightbox-item"><img src="/placeholder.svg" alt="Gallery item 1" /></div>
   <div class="lightbox-item"><img src="/placeholder.svg" alt="Gallery item 2" /></div>
@@ -107,7 +104,6 @@ export const galleries = [
   { 
     id: 4, 
     name: "Carousel Gallery", 
-    description: "Horizontal scrolling gallery with navigation controls",
     code: `<div class="carousel-gallery">
   <div class="carousel-track">
     <div class="carousel-item"><img src="/placeholder.svg" alt="Gallery item 1" /></div>
