@@ -15,6 +15,7 @@ import { AuthProvider } from "@/context/AuthContext";
 import "./App.css";
 import "./styles/button-previews.css";
 import "./styles/components/buttons/social-buttons-card.css";
+import "./styles/components/buttons/functional-buttons.css";
 
 function App() {
   return (
