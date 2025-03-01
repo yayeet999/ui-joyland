@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "next-themes";
-import ScrollToTop from "@/components/ScrollToTop";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import CategoryPage from "@/pages/CategoryPage";
 import ComponentDetail from "@/pages/ComponentDetail";
 import Index from "@/pages/Index";
