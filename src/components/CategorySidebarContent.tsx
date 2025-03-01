@@ -7,7 +7,6 @@ import {
   DollarSign,
   Square,
   Layers,
-  ArrowDown,
   ChevronRight
 } from "lucide-react";
 
@@ -38,7 +37,6 @@ const categories = [
     ]
   },
   { id: "modals", name: "Modals", icon: Layers, href: "/components/modals" },
-  { id: "footers", name: "Footers", icon: ArrowDown, href: "/components/footers" },
 ];
 
 interface CategoryItemProps {

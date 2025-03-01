@@ -4,8 +4,7 @@ import {
   FileText,
   DollarSign,
   Square,
-  Layers,
-  ArrowDown
+  Layers
 } from "lucide-react";
 import CategoryCard from "./CategoryCard";
 import { motion } from "framer-motion";
@@ -28,7 +27,6 @@ const CategoryGrid = () => {
     { id: "pricing", name: "Pricing Tables", icon: DollarSign, href: "/components/pricing" },
     { id: "buttons", name: "Buttons", icon: Square, href: "/components/buttons" },
     { id: "modals", name: "Modals", icon: Layers, href: "/components/modals" },
-    { id: "footers", name: "Footers", icon: ArrowDown, href: "/components/footers" },
   ];
 
   return (

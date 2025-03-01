@@ -40,7 +40,6 @@ const categories = [
     ]
   },
   { id: "modals", name: "Modals", href: "/components/modals" },
-  { id: "footers", name: "Footers", href: "/components/footers" },
 ];
 
 interface HeaderProps {
