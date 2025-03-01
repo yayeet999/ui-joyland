@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -8,10 +7,12 @@ import FacebookButtonPreview from '@/components/previews/buttons/FacebookButtonP
 import XButtonPreview from '@/components/previews/buttons/XButtonPreview';
 import GithubButtonPreview from '@/components/previews/buttons/GithubButtonPreview';
 import GoogleButtonPreview from '@/components/previews/buttons/GoogleButtonPreview';
+import GoogleAuth2ButtonPreview from '@/components/previews/buttons/GoogleAuth2ButtonPreview';
 import AppleButtonPreview from '@/components/previews/buttons/AppleButtonPreview';
 import SubmitButtonPreview from '@/components/previews/buttons/SubmitButtonPreview';
 import DownloadButtonPreview from '@/components/previews/buttons/DownloadButtonPreview';
 import DownloadProgressButtonPreview from '@/components/previews/buttons/DownloadProgressButtonPreview';
+import XAuth2ButtonPreview from '../previews/buttons/XAuth2ButtonPreview';
 
 interface ButtonCardProps {
   component: any;
@@ -31,6 +32,8 @@ const ButtonCard: React.FC<ButtonCardProps> = ({ component, delay, category }) =
         return <GithubButtonPreview />;
       case "Google Auth Button":
         return <GoogleButtonPreview />;
+      case "Google Auth2 Button":
+        return <GoogleAuth2ButtonPreview />;
       case "Apple Auth Button":
         return <AppleButtonPreview />;
       case "Submit Button":
@@ -39,6 +42,8 @@ const ButtonCard: React.FC<ButtonCardProps> = ({ component, delay, category }) =
         return <DownloadButtonPreview />;
       case "Download Progress Button":
         return <DownloadProgressButtonPreview />;
+      case "X Auth2 Button":
+        return <XAuth2ButtonPreview />;
       default:
         return <div className="text-center text-gray-500 dark:text-gray-400">
           <p className="text-sm">[Interactive {component.name} Preview]</p>
