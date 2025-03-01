@@ -1,3 +1,4 @@
+<lov-code>
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
@@ -800,4 +801,4 @@ const ComponentDetail: React.FC = () => {
 .elegant-submit.success .button-shadow {
   opacity: 0.8;
   transform: translateY(2px) translateZ(-1px) scale(1.05);
-  box-shadow: 0 6px 20
+  box-shadow: 0 6px
