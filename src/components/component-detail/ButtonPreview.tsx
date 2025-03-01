@@ -7,6 +7,7 @@ import GoogleButtonPreview from '../previews/buttons/GoogleButtonPreview';
 import AppleButtonPreview from '../previews/buttons/AppleButtonPreview';
 import SubmitButtonPreview from '../previews/buttons/SubmitButtonPreview';
 import DownloadButtonPreview from '../previews/buttons/DownloadButtonPreview';
+import DownloadProgressButtonPreview from '../previews/buttons/DownloadProgressButtonPreview';
 
 interface ButtonPreviewProps {
   name: string;
@@ -28,6 +29,8 @@ const ButtonPreview: React.FC<ButtonPreviewProps> = ({ name }) => {
       return <SubmitButtonPreview />;
     case "Download Button":
       return <DownloadButtonPreview />;
+    case "Download Progress Button":
+      return <DownloadProgressButtonPreview />;
     default:
       return (
         <div className="text-center text-gray-500 dark:text-gray-400">
