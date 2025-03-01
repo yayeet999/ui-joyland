@@ -11,14 +11,18 @@ const SteppedAuthFormPreview = () => {
     e.preventDefault();
 
     if (!isSignUp && !showPassword && email) {
+      // First step of sign in - show password field
       setShowPassword(true);
       return;
     }
 
+    // Process actual submission
     setIsLoading(true);
 
+    // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
+      // Reset form after "successful" submission
       setEmail('');
       setPassword('');
       setShowPassword(false);
@@ -33,7 +37,7 @@ const SteppedAuthFormPreview = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <div className="auth-form-wrapper">
       <form onSubmit={handleContinue} className="form">
         <p className="welcome-text">
           {isSignUp ? 'Create Account' : 'Welcome,'}
@@ -299,59 +303,8 @@ const SteppedAuthFormPreview = () => {
           color: var(--input-focus);
         }
       `}</style>
-
-      <style jsx>{`
-        .step-dots .dot {
-          transition: all 0.3s;
-        }
-        
-        .step-dots .dot.active {
-          background-color: white;
-          transform: scale(1.2);
-        }
-        
-        .step-content {
-          opacity: 0;
-          transform: translateX(20px);
-          transition: opacity 0.3s, transform 0.3s;
-        }
-        
-        .step-content.active {
-          opacity: 1;
-          transform: translateX(0);
-          transition-delay: 0.2s;
-        }
-        
-        .step-number {
-          transition: all 0.3s;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
-        
-        .step-number.completed {
-          background-color: #34d399;
-        }
-        
-        @keyframes gradient-flow {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-        
-        .bg-animated-gradient {
-          background-size: 400% 400%;
-          animation: gradient-flow 15s ease infinite;
-        }
-      `}</style>
     </div>
   );
 };
 
-export default SteppedAuthFormPreview;
+export default SteppedAuthFormPreview; 

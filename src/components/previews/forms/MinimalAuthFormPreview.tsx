@@ -33,7 +33,7 @@ const MinimalAuthFormPreview = () => {
   };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-white dark:bg-gray-900">
+    <div className={`relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-950 to-black transition-all duration-700 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
       {/* Simple background */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNjAgMzBjMCAxNi41NjgtMTMuNDMyIDMwLTMwIDMwUzAgNDYuNTY4IDAgMzAgMTMuNDMyIDAgMzAgMHMzMCAxMy40MzIgMzAgMzB6IiBmaWxsPSJub25lIiBzdHJva2U9IiMyMjIiIG9wYWNpdHk9Ii4wNSIvPjwvc3ZnPg==')] opacity-20"></div>
       
@@ -148,7 +148,7 @@ const MinimalAuthFormPreview = () => {
                   {passwordVisible ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                      <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7 .847 0 1.669-.105 2.454-.303z" clipRule="evenodd" />
+                      <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
                     </svg>
                   ) : (
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -336,51 +336,9 @@ const MinimalAuthFormPreview = () => {
             box-shadow: inset 0px 0px 0px 30px #4ade80;
           }
         }
-        
-        .minimal-auth-form {
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .minimal-auth-form:hover {
-          transform: translateY(-5px);
-        }
-        .form-input:focus + .animated-label,
-        .form-input:not(:placeholder-shown) + .animated-label {
-          transform: translateY(-20px) scale(0.85);
-          color: #6d28d9;
-        }
-        .animated-label {
-          transition: transform 0.3s ease, color 0.3s ease;
-          transform-origin: 0 0;
-        }
-        @keyframes gradient-shift {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-        .gradient-border::before {
-          content: '';
-          position: absolute;
-          inset: -2px;
-          z-index: -1;
-          border-radius: 8px;
-          background: linear-gradient(45deg, #6d28d9, #8b5cf6, #a78bfa, #6d28d9);
-          background-size: 400% 400%;
-          animation: gradient-shift 3s ease infinite;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        .gradient-border:hover::before {
-          opacity: 1;
-        }
       `}</style>
     </div>
   );
 };
 
-export default MinimalAuthFormPreview;
+export default MinimalAuthFormPreview; 
