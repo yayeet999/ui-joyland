@@ -1,17 +1,14 @@
-
 import React from 'react';
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from '@/components/ui/button';
 import { motion } from "framer-motion";
 import AuthWithGoogleFormPreview from '@/components/previews/forms/AuthWithGoogleFormPreview';
-
 interface FormCardProps {
   component: any;
   delay: number;
   category: string;
 }
-
 const FormCard: React.FC<FormCardProps> = ({
   component,
   delay,
@@ -31,24 +28,16 @@ const FormCard: React.FC<FormCardProps> = ({
         </div>;
     }
   };
-
-  return <motion.div 
-    initial={{
-      opacity: 0,
-      y: 20
-    }} 
-    animate={{
-      opacity: 1,
-      y: 0
-    }} 
-    transition={{
-      duration: 0.4,
-      delay: delay * 0.1
-    }} 
-    className={`bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden ${
-      isAuthForm ? 'col-span-1 md:col-span-2 lg:col-span-2 xl:col-span-2' : 'col-span-1'
-    }`}
-  >
+  return <motion.div initial={{
+    opacity: 0,
+    y: 20
+  }} animate={{
+    opacity: 1,
+    y: 0
+  }} transition={{
+    duration: 0.4,
+    delay: delay * 0.1
+  }} className={`bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden ${isAuthForm ? 'col-span-1 md:col-span-2 lg:col-span-2 xl:col-span-2' : 'col-span-1'}`}>
       {/* Component Preview */}
       <div className="relative">
         <div className="absolute top-2 right-2 z-10">
@@ -59,17 +48,10 @@ const FormCard: React.FC<FormCardProps> = ({
             </Link>
           </Button>
         </div>
-        <div className={`relative ${
-          isAuthForm 
-            ? 'aspect-[16/11.5] md:aspect-[16/10.3] lg:aspect-[16/9.2]' // Made approximately 15% taller
-            : 'min-h-[200px]'
-        } bg-gray-50 dark:bg-gray-900`}>
-          <div className="absolute inset-0 flex items-center justify-center p-6 md:p-6 lg:p-8 overflow-auto">
-            <div className={`w-full ${
-              isAuthForm 
-                ? 'max-w-md md:max-w-lg lg:max-w-xl transform scale-95 md:scale-100'
-                : ''
-            }`}>
+        <div className={`relative ${isAuthForm ? 'aspect-[16/11.5] md:aspect-[16/10.3] lg:aspect-[16/9.2]' // Made approximately 15% taller
+      : 'min-h-[200px]'} bg-gray-50 dark:bg-gray-900`}>
+          <div className="absolute inset-0 flex items-center justify-center p-6 md:p-6 lg:p-8 overflow-auto py-[5px]">
+            <div className={`w-full ${isAuthForm ? 'max-w-md md:max-w-lg lg:max-w-xl transform scale-95 md:scale-100' : ''}`}>
               {renderFormPreview()}
             </div>
           </div>
@@ -82,5 +64,4 @@ const FormCard: React.FC<FormCardProps> = ({
       </div>
     </motion.div>;
 };
-
 export default FormCard;
