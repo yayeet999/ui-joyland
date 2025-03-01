@@ -3,7 +3,7 @@
 export const galleries = [
   { 
     id: 1, 
-    name: "Masonry Gallery", 
+    name: "Image Hover Text Display", 
     code: `<div class="masonry-gallery">
   <div class="masonry-item"><img src="/placeholder.svg" alt="Gallery item 1" /></div>
   <div class="masonry-item"><img src="/placeholder.svg" alt="Gallery item 2" /></div>
