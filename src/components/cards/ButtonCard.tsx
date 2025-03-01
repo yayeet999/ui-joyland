@@ -9,10 +9,11 @@ import GithubButtonPreview from '@/components/previews/buttons/GithubButtonPrevi
 import GoogleButtonPreview from '@/components/previews/buttons/GoogleButtonPreview';
 import GoogleAuth2ButtonPreview from '@/components/previews/buttons/GoogleAuth2ButtonPreview';
 import AppleButtonPreview from '@/components/previews/buttons/AppleButtonPreview';
-import SubmitButtonPreview from '@/components/previews/buttons/SubmitButtonPreview';
 import DownloadButtonPreview from '@/components/previews/buttons/DownloadButtonPreview';
 import DownloadProgressButtonPreview from '@/components/previews/buttons/DownloadProgressButtonPreview';
 import XAuth2ButtonPreview from '@/components/previews/buttons/XAuth2ButtonPreview';
+import AnimatedSubmitButtonPreview from '@/components/previews/buttons/AnimatedSubmitButtonPreview';
+import AddToCartButtonPreview from '../previews/buttons/AddToCartButtonPreview';
 
 interface ButtonCardProps {
   component: any;
@@ -36,14 +37,16 @@ const ButtonCard: React.FC<ButtonCardProps> = ({ component, delay, category }) =
         return <GoogleAuth2ButtonPreview />;
       case "Apple Auth Button":
         return <AppleButtonPreview />;
-      case "Submit Button":
-        return <SubmitButtonPreview />;
       case "Download Button":
         return <DownloadButtonPreview />;
       case "Download Progress Button":
         return <DownloadProgressButtonPreview />;
       case "X Auth2 Button":
         return <XAuth2ButtonPreview />;
+      case "Animated Submit Button":
+        return <AnimatedSubmitButtonPreview />;
+      case "Add-to-Cart Button":
+        return <AddToCartButtonPreview />;
       default:
         return <div className="text-center text-gray-500 dark:text-gray-400">
           <p className="text-sm">[Interactive {component.name} Preview]</p>

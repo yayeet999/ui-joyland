@@ -1,6 +1,10 @@
-
 /* Import social button styles from existing component files */
 @import './components/buttons/social-buttons-card.css';
 
 /* Import functional button styles */
 @import './components/buttons/functional-buttons.css';
+
+/* Import animated submit button styles */
+@import './components/buttons/animated-submit-button.css';
+
+@import './components/buttons/add-to-cart-button.css';

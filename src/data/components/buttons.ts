@@ -43,25 +43,240 @@ export const buttons = [
   { 
     id: 6, 
     name: "Apple Auth Button", 
-    code: "<button class=\"apple-auth-btn\">\n  <div class=\"apple-icon-wrapper\">\n    <svg class=\"apple-icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\">\n      <path fill=\"#ffffff\" d=\"M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z\"/>\n    </svg>\n  </div>\n  <span class=\"button-text\">Sign in with Apple</span>\n</button>",
-    html: "<button class=\"apple-auth-btn\">\n  <div class=\"apple-icon-wrapper\">\n    <svg class=\"apple-icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 384 512\">\n      <path fill=\"#ffffff\" d=\"M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z\"/>\n    </svg>\n  </div>\n  <span class=\"button-text\">Sign in with Apple</span>\n</button>",
-    css: ".apple-auth-btn {\n  width: 240px;\n  height: 42px;\n  background-color: #000000;\n  border-radius: 6px;\n  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);\n  cursor: pointer;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.2s ease;\n  border: none;\n  position: relative;\n}\n\n.apple-auth-btn:active {\n  background-color: #1a1a1a;\n  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.25);\n  transform: translateY(1px);\n}\n\n.apple-auth-btn:hover {\n  background-color: #333333;\n  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25);\n}\n\n.apple-icon-wrapper {\n  position: absolute;\n  left: 16px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n\n.apple-icon {\n  width: 18px;\n  height: 18px;\n}\n\n.button-text {\n  color: white;\n  font-size: 14px;\n  font-weight: 500;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n  letter-spacing: 0.2px;\n}",
+    code: "<button class=\"apple-auth-btn-card\">\n  <div class=\"apple-icon-wrapper-card\">\n    <svg class=\"apple-icon-card\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\">\n      <path d=\"M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z\"/>\n      <path d=\"M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z\"/>\n    </svg>\n  </div>\n  <span class=\"button-text-card\">Sign in with Apple</span>\n</button>",
+    html: "<button class=\"apple-auth-btn-card\">\n  <div class=\"apple-icon-wrapper-card\">\n    <svg class=\"apple-icon-card\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\">\n      <path d=\"M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z\"/>\n      <path d=\"M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z\"/>\n    </svg>\n  </div>\n  <span class=\"button-text-card\">Sign in with Apple</span>\n</button>",
+    css: ".apple-auth-btn-card {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 10px 20px;\n  background-color: #000000;\n  border: none;\n  border-radius: 8px;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n}\n\n.apple-auth-btn-card:hover {\n  background-color: #1a1a1a;\n}\n\n.apple-icon-wrapper-card {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-right: 10px;\n}\n\n.apple-icon-card {\n  width: 20px;\n  height: 20px;\n  fill: #ffffff;\n}\n\n.button-text-card {\n  color: #ffffff;\n  font-size: 16px;\n  font-weight: 500;\n}",
     type: "social"
   },
   {
-    id: 7,
-    name: "Submit Button",
-    code: "<button class=\"submit-button\">\n  Submit\n</button>",
-    html: "<button class=\"submit-button\">\n  Submit\n</button>",
-    css: ".submit-button {\n  padding: 10px 24px;\n  font-size: 16px;\n  font-weight: 600;\n  color: #ffffff;\n  background-color: #10b981;\n  border: none;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n\n.submit-button:hover {\n  background-color: #059669;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n}\n\n.submit-button:active {\n  transform: translateY(1px);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}",
-    type: "functional"
-  },
-  {
     id: 8,
-    name: "Download Button",
-    code: "<button class=\"download-button\">\n  <svg class=\"download-icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"></path>\n    <polyline points=\"7 10 12 15 17 10\"></polyline>\n    <line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"></line>\n  </svg>\n  Download\n</button>",
-    html: "<button class=\"download-button\">\n  <svg class=\"download-icon\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4\"></path>\n    <polyline points=\"7 10 12 15 17 10\"></polyline>\n    <line x1=\"12\" y1=\"15\" x2=\"12\" y2=\"3\"></line>\n  </svg>\n  Download\n</button>",
-    css: ".download-button {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 10px 24px;\n  font-size: 16px;\n  font-weight: 600;\n  color: #ffffff;\n  background-color: #3b82f6;\n  border: none;\n  border-radius: 8px;\n  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n  cursor: pointer;\n  transition: all 0.2s ease;\n}\n\n.download-button:hover {\n  background-color: #2563eb;\n  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);\n}\n\n.download-button:active {\n  transform: translateY(1px);\n  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);\n}\n\n.download-icon {\n  width: 16px;\n  height: 16px;\n}",
+    name: "Add-to-Cart Button",
+    code: `<button class="cart-btn">
+  <span class="cart-icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M4 4h2l3.6 10h10l2.4-7H5.5M9 19.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm9 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+    </svg>
+  </span>
+  <span class="text">Add to Cart</span>
+  <span class="checkmark">
+    <svg viewBox="0 0 24 24">
+      <path d="M6 12l4 4L18 6" />
+    </svg>
+  </span>
+</button>`,
+    html: `<button class="cart-btn">
+  <span class="cart-icon">
+    <svg viewBox="0 0 24 24">
+      <path d="M4 4h2l3.6 10h10l2.4-7H5.5M9 19.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm9 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+    </svg>
+  </span>
+  <span class="text">Add to Cart</span>
+  <span class="checkmark">
+    <svg viewBox="0 0 24 24">
+      <path d="M6 12l4 4L18 6" />
+    </svg>
+  </span>
+</button>`,
+    css: `/* Add to Cart Button Styles */
+.cart-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 32px;
+  background: linear-gradient(135deg, #8a3ffc, #4f46e5);
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 
+    0 10px 20px rgba(79, 70, 229, 0.3),
+    0 3px 6px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  overflow: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 14px 26px rgba(79, 70, 229, 0.35),
+    0 4px 8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.cart-btn:active {
+  transform: translateY(1px);
+  box-shadow: 
+    0 6px 16px rgba(79, 70, 229, 0.25),
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+/* Cart icon */
+.cart-icon {
+  width: 22px;
+  height: 22px;
+  position: relative;
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.cart-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.cart-btn:hover .cart-icon {
+  transform: scale(1.1) translateX(-2px);
+}
+
+/* Ultra-smooth cart animation */
+.cart-btn.clicked .cart-icon {
+  animation: cartMove 1.5s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes cartMove {
+  0% { transform: translateX(0px); opacity: 1; }
+  50% { transform: translateX(100px); opacity: 1; }
+  100% { transform: translateX(200px); opacity: 0; }
+}
+
+/* Text and checkmark */
+.text {
+  display: inline-block;
+  transform: translateZ(0);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.checkmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 34px;
+  height: 34px;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 
+    0 4px 8px rgba(16, 185, 129, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkmark svg {
+  width: 65%;
+  height: 65%;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.2));
+}
+
+.cart-btn.clicked .text {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.cart-btn.clicked .checkmark {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition-delay: 0.3s;
+  animation: checkPop 0.5s cubic-bezier(0.17, 0.89, 0.32, 1.49) forwards 0.3s;
+}
+
+@keyframes checkPop {
+  0% { transform: translate(-50%, -50%) scale(0.8); }
+  40% { transform: translate(-50%, -50%) scale(1.15); }
+  60% { transform: translate(-50%, -50%) scale(0.95); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Sparkle burst with improved particles */
+.sparkle {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10;
+}
+
+.sparkle::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 6px currentColor;
+}
+
+@keyframes sparkleBurst {
+  0% { transform: translate(0, 0) scale(0); opacity: 1; }
+  50% { opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(1); opacity: 0; }
+}
+
+/* Button pulse with ripple effect */
+.cart-btn.clicked {
+  animation: pulse 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.05); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* Ripple effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}`,
     type: "functional"
   },
   {
@@ -79,6 +294,14 @@ export const buttons = [
     html: "<button class=\"x-auth2-btn-card\">\n  <div class=\"x-icon2-wrapper-card\">\n    <svg class=\"x-icon2-card\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n      <path d=\"M13.317 10.846 19.3 4h-1.418l-5.193 5.943L8.071 4H3l6.291 8.988L3 20h1.418l5.51-6.308L15.929 20H21l-7.683-10.154Zm-1.953 2.235-.635-.903L5.659 5.04h1.814l4.502 6.402.635.903 5.289 7.521h-1.814l-4.721-6.785Z\"/>\n    </svg>\n  </div>\n  <span class=\"button-text2-card\">Continue with X</span>\n</button>",
     css: ".x-auth2-btn-card {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: #ffffff;\n  color: #000;\n  border: 2px solid #000;\n  border-radius: 50px;\n  padding: 12px 24px;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n  cursor: pointer;\n  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;\n  font-size: 16px;\n  font-weight: 600;\n  box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n  width: 220px;\n  height: 42px;\n}\n\n.x-auth2-btn-card:hover {\n  background-color: #000;\n  color: #ffffff;\n  transform: translateY(-2px);\n  box-shadow: 0 4px 8px rgba(0,0,0,0.2);\n}\n\n.x-icon2-wrapper-card {\n  display: flex;\n  margin-right: 12px;\n}\n\n.x-icon2-card {\n  width: 22px;\n  height: 22px;\n}\n\n.button-text2-card {\n  font-size: 14px;\n  font-weight: 600;\n  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n}",
     type: "social"
+  },
+  {
+    id: 11,
+    name: "Animated Submit Button",
+    code: "<div class=\"magnetic-btn\" id=\"magneticBtn\">\n  <div class=\"button-container\">\n    <button class=\"submit-button\" id=\"submitBtn\">\n      <div class=\"splash\" id=\"splash\"></div>\n      <div class=\"button-content\">\n        <div class=\"button-label-container\">\n          <div class=\"button-label\">\n            <span class=\"label-text\">Submit</span>\n            <span class=\"label-text\">Ready</span>\n          </div>\n        </div>\n        <div class=\"btn-icon\">\n          <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M3.33337 8H12.6667\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n            <path d=\"M8 3.33331L12.6667 7.99998L8 12.6666\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n          </svg>\n        </div>\n        <div class=\"loader\"></div>\n        <div class=\"success-icon\">\n          <svg width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M18 7L9.5 15.5L6 12\" stroke=\"white\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n          </svg>\n        </div>\n      </div>\n    </button>\n  </div>\n</div>\n<div class=\"particles\" id=\"particles\"></div>\n<div class=\"custom-cursor\" id=\"customCursor\"></div>",
+    html: "<div class=\"magnetic-btn\" id=\"magneticBtn\">\n  <div class=\"button-container\">\n    <button class=\"submit-button\" id=\"submitBtn\">\n      <div class=\"splash\" id=\"splash\"></div>\n      <div class=\"button-content\">\n        <div class=\"button-label-container\">\n          <div class=\"button-label\">\n            <span class=\"label-text\">Submit</span>\n            <span class=\"label-text\">Ready</span>\n          </div>\n        </div>\n        <div class=\"btn-icon\">\n          <svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M3.33337 8H12.6667\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n            <path d=\"M8 3.33331L12.6667 7.99998L8 12.6666\" stroke=\"white\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n          </svg>\n        </div>\n        <div class=\"loader\"></div>\n        <div class=\"success-icon\">\n          <svg width=\"32\" height=\"32\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n            <path d=\"M18 7L9.5 15.5L6 12\" stroke=\"white\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n          </svg>\n        </div>\n      </div>\n    </button>\n  </div>\n</div>\n<div class=\"particles\" id=\"particles\"></div>\n<div class=\"custom-cursor\" id=\"customCursor\"></div>",
+    css: "* {\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n}\n\nbody {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n  background-color: #f9fafb;\n  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;\n}\n\n.button-container {\n  position: relative;\n  z-index: 1;\n}\n\n.submit-button {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 180px;\n  height: 54px;\n  padding: 0;\n  background-color: #3b82f6;\n  border: none;\n  border-radius: 4px;\n  color: #fff;\n  font-size: 16px;\n  font-weight: 500;\n  letter-spacing: 0.5px;\n  cursor: pointer;\n  overflow: hidden;\n  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);\n  will-change: transform, width, background-color;\n}\n\n.button-content {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 10px;\n  width: 100%;\n  height: 100%;\n  z-index: 2;\n}\n\n.btn-text {\n  margin-right: 8px;\n  transition: transform 0.3s ease, opacity 0.3s ease;\n}\n\n.btn-icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 24px;\n  height: 24px;\n  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);\n}\n\n.submit-button::after {\n  content: \"\";\n  position: absolute;\n  top: -4px;\n  left: -4px;\n  right: -4px;\n  bottom: -4px;\n  background: linear-gradient(45deg, #4f46e5, #3b82f6, #60a5fa);\n  z-index: -1;\n  border-radius: 8px;\n  opacity: 0;\n  filter: blur(8px);\n  transition: opacity 0.3s ease;\n}\n\n.submit-button:hover::after {\n  opacity: 0.6;\n}\n\n.submit-button:hover {\n  background-color: #2563eb;\n}\n\n.submit-button:hover::before {\n  opacity: 1;\n  transform: scaleX(1);\n}\n\n.submit-button::before {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);\n  z-index: 1;\n  opacity: 0;\n  transform: scaleX(0.5);\n  transition: transform 0.6s ease, opacity 0.6s ease;\n}\n\n.submit-button:hover .btn-text {\n  transform: translateX(-4px);\n}\n\n.submit-button:hover .btn-icon {\n  transform: translateX(4px);\n}\n\n.submit-button:active .btn-text,\n.submit-button:active .btn-icon {\n  transform: scale(0.95);\n}\n\n.submit-button.processing {\n  width: 54px;\n  border-radius: 27px;\n}\n\n.submit-button.processing .button-label-container {\n  opacity: 0;\n  transform: translateX(-20px);\n}\n\n.submit-button.processing .btn-icon {\n  transform: rotate(0deg);\n}\n\n.loader {\n  position: absolute;\n  width: 24px;\n  height: 24px;\n  border: 2px solid rgba(255, 255, 255, 0.2);\n  border-radius: 50%;\n  border-top-color: #fff;\n  opacity: 0;\n  transform: scale(0);\n  transition: opacity 0.3s ease, transform 0.3s ease;\n}\n\n.submit-button.processing .loader {\n  opacity: 1;\n  transform: scale(1);\n  animation: spin 1s linear infinite;\n}\n\n@keyframes spin {\n  0% { transform: rotate(0deg); }\n  100% { transform: rotate(360deg); }\n}\n\n.success-icon {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  opacity: 0;\n  pointer-events: none;\n}\n\n.submit-button.success .success-icon {\n  opacity: 1;\n}\n\n.submit-button.success {\n  width: 54px;\n  border-radius: 27px;\n  background-color: #10B981;\n}\n\n.submit-button.success .button-label-container {\n  opacity: 0;\n}\n\n.submit-button.success .btn-text,\n.submit-button.success .btn-icon,\n.submit-button.success .loader {\n  opacity: 0;\n}\n\n.submit-button.success .success-icon {\n  opacity: 1;\n  transform: scale(1);\n}\n\n.magnetic-btn {\n  position: relative;\n  display: inline-block;\n}\n\n.custom-cursor {\n  position: fixed;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background-color: rgba(0, 0, 0, 0.3);\n  pointer-events: none;\n  mix-blend-mode: difference;\n  z-index: 9999;\n  opacity: 0;\n  transform: translate(-50%, -50%);\n  transition: width 0.3s, height 0.3s, opacity 0.3s;\n}\n\n.splash {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, 0.1);\n  border-radius: 4px;\n  transform: scale(0);\n  opacity: 0;\n  z-index: 1;\n}\n\n@keyframes splash-animation {\n  0% {\n    transform: scale(0);\n    opacity: 0.7;\n  }\n  100% {\n    transform: scale(1.5);\n    opacity: 0;\n  }\n}\n\n.particles {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  overflow: visible;\n  pointer-events: none;\n}\n\n.particle {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  background-color: #10B981;\n  border-radius: 2px;\n  z-index: 1;\n  pointer-events: none;\n}\n\n.button-label-container {\n  overflow: hidden;\n  height: 20px;\n}\n\n.button-label {\n  display: flex;\n  flex-direction: column;\n  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);\n}\n\n.label-text {\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.submit-button:hover .button-label {\n  transform: translateY(-20px);\n}",
+    type: "functional"
   }
 ];
 
