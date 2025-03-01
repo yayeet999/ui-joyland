@@ -7,6 +7,7 @@ import { ComponentCardFactory } from "@/utils/component-factory";
 import { getCategoryName } from "@/utils/category";
 import { buttons } from "@/data/components/buttons";
 import { forms } from "@/data/components/forms";
+import { galleries } from "@/data/components/galleries";
 
 // Import styles
 import '@/styles/components/buttons/social-buttons-card.css';
@@ -21,12 +22,6 @@ interface ComponentItem {
 
 // Mock component data for each category
 const mockComponents: Record<string, ComponentItem[]> = {
-  galleries: [
-    { id: 1, name: "Image Grid Gallery", code: "<div>Image Grid Gallery Code Here</div>" },
-    { id: 2, name: "Masonry Gallery", code: "<div>Masonry Gallery Code Here</div>" },
-    { id: 3, name: "Lightbox Gallery", code: "<div>Lightbox Gallery Code Here</div>" },
-    { id: 4, name: "Carousel Gallery", code: "<div>Carousel Gallery Code Here</div>" },
-  ],
   charts: [
     { id: 1, name: "Line Chart", code: "<div>Line Chart Code Here</div>" },
     { id: 2, name: "Bar Chart", code: "<div>Bar Chart Code Here</div>" },
@@ -70,6 +65,8 @@ const CategoryPage: React.FC = () => {
     ? buttons 
     : categoryKey === 'forms'
     ? forms
+    : categoryKey === 'galleries'
+    ? galleries
     : mockComponents[categoryKey as keyof typeof mockComponents] || [];
   
   // Filter components based on type if we're on the buttons or forms page and have a type query param
