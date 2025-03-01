@@ -21,7 +21,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ component, delay, category })
       className="h-full"
     >
       <Card className="overflow-hidden h-full border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300">
-        {/* Preview Area */}
+        {/* Preview Area - Gallery-specific styling */}
         <div className="relative bg-gray-50 dark:bg-gray-900 aspect-video flex items-center justify-center p-4">
           <div className="absolute top-2 right-2 z-10">
             <Button
@@ -37,7 +37,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ component, delay, category })
             </Button>
           </div>
           
-          {/* Gallery preview placeholder */}
+          {/* Gallery preview placeholder - Gallery-specific */}
           <div className="w-full h-full flex items-center justify-center">
             <div className="text-center text-gray-500 dark:text-gray-400">
               <p>[{component.name} Preview]</p>

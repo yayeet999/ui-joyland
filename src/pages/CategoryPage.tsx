@@ -51,23 +51,35 @@ const CategoryPage: React.FC = () => {
   
   const categoryKey = category || '';
   
-  // Determine which data source to use based on category
+  // CATEGORY-SPECIFIC DATA RETRIEVAL
+  // Each category has its own independent data handling
   let components = [];
-  if (categoryKey === 'buttons') {
-    components = buttons;
-  } else if (categoryKey === 'forms') {
-    components = forms;
-  } else if (categoryKey === 'galleries') {
-    components = galleries;
-  } else {
-    // Use mock data for other categories
-    components = mockComponents[categoryKey as keyof typeof mockComponents] || [];
-  }
   
-  // Filter components based on type - ONLY for categories that support type filtering
-  // Explicitly exclude galleries from type filtering
-  if (componentType && categoryKey !== 'galleries' && (categoryKey === 'buttons' || categoryKey === 'forms')) {
-    components = components.filter(comp => comp.type === componentType);
+  // Retrieve components based on category
+  if (categoryKey === 'buttons') {
+    // Button-specific data handling
+    components = buttons;
+    // Button-specific filtering
+    if (componentType) {
+      components = components.filter(comp => comp.type === componentType);
+    }
+  } 
+  else if (categoryKey === 'forms') {
+    // Form-specific data handling
+    components = forms;
+    // Form-specific filtering
+    if (componentType) {
+      components = components.filter(comp => comp.type === componentType);
+    }
+  } 
+  else if (categoryKey === 'galleries') {
+    // Gallery-specific data handling - no type filtering
+    components = galleries;
+    // Galleries don't have types, so no filtering
+  } 
+  else {
+    // Default handling for other categories
+    components = mockComponents[categoryKey as keyof typeof mockComponents] || [];
   }
   
   const categoryName = getCategoryName(categoryKey);
@@ -88,23 +100,25 @@ const CategoryPage: React.FC = () => {
     }
   };
   
-  // This check is ONLY for forms - completely independent from galleries
-  const hasAuthForms = categoryKey === 'forms' && 
-    (componentType === 'auth' || (!componentType && forms.some(comp => comp.type === 'auth')));
-    
-  // Define a function to determine grid layout class based on category
+  // CATEGORY-SPECIFIC LAYOUT DETERMINATION
+  // Each category now has its own independent layout function
   const getGridLayoutClass = () => {
-    // Special case for galleries - always use 2-column layout for larger screens
+    // Gallery-specific layout - always 2-column
     if (categoryKey === 'galleries') {
       return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-8';
     }
     
-    // Special case for auth forms
-    if (hasAuthForms) {
-      return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-8';
+    // Form-specific layout - 2-column for auth forms
+    if (categoryKey === 'forms') {
+      const hasAuthForms = componentType === 'auth' || 
+        (!componentType && forms.some(comp => comp.type === 'auth'));
+      
+      if (hasAuthForms) {
+        return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-8';
+      }
     }
     
-    // Default grid layout for other categories
+    // Default layout for all other categories
     return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8';
   };
 
